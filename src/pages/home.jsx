@@ -3,7 +3,7 @@ import React from 'react'
 export default function Home() {
   return (
     <div className=''>
-        <div className=' bg-[url("images/img-3.jpg")] bg-cover bg-top h-68 p-2'>
+        <div className=' bg-[url("/images/img-3.jpg")] bg-cover bg-top h-68 p-2'>
             <div className='space-y-2 flex flex-col justify-center items-center text-white pt-10 '>
                 <h1 className='text-6xl font-semibold'>Lorem Ipsum Dolor.</h1>
                 <p className=''>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -11,10 +11,11 @@ export default function Home() {
             </div>
 
         </div>
+
+
 {/* MENU  */}
 
-
-<div className=' lg:p-10 md:p-10 bg-amber-100 py-4'>
+<div className=' lg:p-10 md:p-10 bg-amber-50 py-4'>
 
 <div className=' container mx-auto py-7 mt- rounded shadow-md px-4'>
     <div className='grid lg:grid-cols-4 md:grid-cols-4 gap-3'>

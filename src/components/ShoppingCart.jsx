@@ -14,7 +14,7 @@ export default function ShoppingCart() {
   
   return (
     <>
-<div className=' p-10 bg-[url("images/img-2.jpg")]  bg-cover flex justify-center items-center '>
+<div style={{backgroundImage:""}} className=' p-10 bg-[url("/images/img-2.jpg")]  bg-cover flex justify-center items-center '>
             <h1 className='text-5xl font-bold  text-center text-white'>Shopping Cart</h1>
         </div>
 

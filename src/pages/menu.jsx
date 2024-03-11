@@ -19,7 +19,7 @@ addToCart(item)
   return (
     <div className="">
   
-<div className="p-10 bg-[url('images/img-2.jpg')]  bg-cover flex justify-center items-center">
+<div className="p-10 bg-[url('/images/img-2.jpg')]  bg-cover flex justify-center items-center">
 
 <h1 className=" text-4xl font-bold text-white">Menu</h1>
 </div>
