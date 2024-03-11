@@ -25,7 +25,7 @@ const display = ()=>{
    
                 <div className='flex gap-4 sm:hidden md:hidden'>
                 <NavLink className='text-lg'>Home</NavLink>
-                 <NavLink to={'home'} className=' text-lg'>Menu</NavLink>
+                 <NavLink to={'menu'} className=' text-lg'>Menu</NavLink>
                    <NavLink className='text-lg'>About</NavLink>
                    <NavLink className='text-lg'>Contact</NavLink>
                 </div>
