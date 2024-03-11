@@ -46,7 +46,7 @@ export default function ShoppingCart() {
      <div className='lg:container xl:container mx-auto py-10 lg:px-20'>
 
       <div className='grid grid-cols-12 gap-3'>
-        {/* <table className='w-full lg:col-span-9 xl:col-span-9 md:col-span-12 sm:col-span-12'>
+        <table className='w-full lg:col-span-9 xl:col-span-9 md:col-span-12 sm:col-span-12'>
             <thead className=''>
                 <tr className='text-left '>
                     <th className=''>Description</th>
@@ -84,9 +84,9 @@ export default function ShoppingCart() {
 
             </tbody>
 
-        </table> */}
+        </table>
 
-        <table className='w-full lg:col-span-9 xl:col-span-9 md:col-span-12 sm:col-span-12'>
+        {/* <table className='w-full lg:col-span-9 xl:col-span-9 md:col-span-12 sm:col-span-12'>
           <thead>
             <tr>
               <th>Item</th>
@@ -97,7 +97,7 @@ export default function ShoppingCart() {
             </tr>
           </thead>
 
-        </table>
+        </table> */}
 
 
 
@@ -106,7 +106,7 @@ export default function ShoppingCart() {
 
   {/* Checkout div  */}
 
-{/* <div className='shadow-md border lg:col-span-3 md:col-span-12 sm:col-span-12 p-4 space-y-2'>
+<div className='shadow-md border lg:col-span-3 md:col-span-12 sm:col-span-12 p-4 space-y-2'>
   <h1 className='font-bold text-lg'>Order Summary</h1>
   
   <div className='flex justify-between'>
@@ -146,7 +146,7 @@ export default function ShoppingCart() {
  
    <button className='text-white font-medium bg-blue-500 p-2 w-full'>Proceed to Checkout</button>
 
-</div> */}
+</div>
 
 
      

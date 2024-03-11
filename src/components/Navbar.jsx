@@ -59,7 +59,7 @@ const display = ()=>{
 
             <div className={`${show ?'flex' : 'hidden'} lg:hidden flex-col justify-center absolute bg-slate-950 w-full `}>
              <NavLink className={`py-4 text-sm px-5 hover:bg-white hover:text-black`}>Home </NavLink>
-             <NavLink  className={`py-4 text-sm px-5 hover:bg-white hover:text-black`}> Menu</NavLink>
+             <NavLink to={'menu'}  className={`py-4 text-sm px-5 hover:bg-white hover:text-black`}> Menu</NavLink>
              <NavLink  className={`py-4 text-sm px-5 hover:bg-white hover:text-black`}> About </NavLink>
              <NavLink  className={`py-4 text-sm px-5 hover:bg-white hover:text-black`}>Contact </NavLink>
             </div>
