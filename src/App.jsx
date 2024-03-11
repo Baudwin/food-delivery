@@ -2,9 +2,8 @@ import './App.css'
 import ShoppingCart from './components/ShoppingCart'
 import {Route, RouterProvider, createBrowserRouter,createRoutesFromElements} from 'react-router-dom'
 import RootLayout from './layout/RootLayout'
-import Shop from './pages/Shop'
+import Menu from './pages/menu'
 import Home from './pages/home'
-import Test from './pages/test'
 import { ToastContainer } from 'react-toastify'
 
 function App() {
@@ -13,10 +12,9 @@ function App() {
     createRoutesFromElements (
       
       <Route path='/' element={<RootLayout/>}>
+        <Route index element={<Home/>}/>
         <Route path='shopping-cart' element={<ShoppingCart/>}></Route>
-        <Route path='shop' element={<Shop/>}></Route>
-        <Route path='menu' element={<Home/>}></Route>
-        {/* <Route path='test' element={<Test/>}></Route> */}
+        <Route path='/menu' element={<Menu/>}></Route>
       </Route>
     )
   )
