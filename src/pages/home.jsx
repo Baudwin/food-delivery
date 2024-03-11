@@ -3,7 +3,7 @@ import React from 'react'
 export default function Home() {
   return (
     <div className=''>
-        <div className=' bg-[url("/images/img-3.jpg")] bg-cover bg-top h-68 p-2'>
+        <div className=' bg-[url("/images/img-3.jpg")] bg-cover bg-top h-72 p-2'>
             <div className='space-y-2 flex flex-col justify-center items-center text-white pt-10 '>
                 <h1 className='text-6xl font-semibold'>Lorem Ipsum Dolor.</h1>
                 <p className=''>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
