@@ -61,7 +61,7 @@ export default function ShoppingCart() {
           {cartItems?.map(item=>{
             return   <tr key={item.id} className='border-b-2 border-t-2'>
             <td className='flex items-center flex-col py-6 gap-1'>
-                <img className='w-16 h-16' src={`images/${item.img}.jpg`} alt="img" />
+                <img className='w-16 h-16' src={`/images/${item.img}.jpg`} alt="img" />
                 <span className='text-gray-700 text-md font-semibold'>{item.name}</span>
                 <span className='text-gray-600 text-sm font-medium '>{item.price} CFA</span>
             </td>
