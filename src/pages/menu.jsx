@@ -34,7 +34,7 @@ addToCart(item)
 
 {items.map(item=>{
   return <div key={item.id} className=" relative">
-<img className=" shadow-sm h-44 w-full object-cover border" src={`images/${item.img}.jpg`} alt="img" />
+<img className=" shadow-sm h-44 w-full object-cover border" src={`/images/${item.img}.jpg`} alt="img" />
 <h1 className="font-semibold text-md">{item.name}</h1>
 <div className="flex justify-between items-center">
 <p className="text-gray-600 ">{item.price} CFA</p>
@@ -56,7 +56,6 @@ addToCart(item)
 </div>
 
 {/* First grid ends here */}
-
 
 
 {/* Second grid elow  */}

@@ -46,36 +46,40 @@ export default function ShoppingCart() {
      <div className='lg:container xl:container mx-auto py-10 lg:px-20'>
 
       <div className='grid grid-cols-12 gap-3'>
+
         <table className='w-full lg:col-span-9 xl:col-span-9 md:col-span-12 sm:col-span-12'>
-            <thead className=''>
-                <tr className='text-left '>
+            <thead className='text-left'>
+                <tr className=''>
                     <th className=''>Description</th>
+
                     <th className=''>Quantity</th>
+                    <th className=''>Total</th>
                     <th className=''>Remove</th>
-                    <th className=''>Price</th>
                 </tr>
             </thead>
             <tbody className=''>
           {cartItems?.map(item=>{
             return   <tr key={item.id} className='border-b-2 border-t-2'>
-            <td className='flex items-center py-6 gap-1'>
-                <img className='w-16 h-12' src={`images/${item.img}.jpg`} alt="img" />
-                <span className='text-gray-600 text-md font-medium'>{item.name}</span>
+            <td className='flex items-center flex-col py-6 gap-1'>
+                <img className='w-16 h-16' src={`images/${item.img}.jpg`} alt="img" />
+                <span className='text-gray-700 text-md font-semibold'>{item.name}</span>
+                <span className='text-gray-600 text-sm font-medium '>{item.price} CFA</span>
             </td>
          
             <td className=''>
-                <span className=' cursor-pointer px-2 py-1 text-white font-semibold bg-slate-700 '>+</span>
+                <span className=' cursor-pointer px-2 py-1 text-white font-bold bg-slate-700 rounded-full'>+</span>
                 <span className=' cursor-pointer px-2 py-1'>{item.quantity}</span>
-                <span className=' cursor-pointer px-2 py-1 font-semibold bg-gray-100 '>-</span>
+                <span className=' cursor-pointer px-2 py-1 font-bold bg-gray-200 rounded-full '>-</span>
             </td>
 
-      <td>
-        <button onClick={()=>removeItem(item)} className='border  font-bold cursor-pointer px-2 py-1 bg-white shadow'>
-            x
-        </button>            
-     </td>
      <td>
         <span className='text-blue-300'>{item.price} CFA</span>
+     </td>
+
+      <td>
+        <button onClick={()=>removeItem(item)} className='border font-bold cursor-pointer px-2 py-1 bg-white shadow'>
+            x
+        </button>            
      </td>
 
         </tr>
@@ -86,19 +90,7 @@ export default function ShoppingCart() {
 
         </table>
 
-        {/* <table className='w-full lg:col-span-9 xl:col-span-9 md:col-span-12 sm:col-span-12'>
-          <thead>
-            <tr>
-              <th>Item</th>
-              <th>Price</th>
-              <th>Quantity</th>
-              <th>Total</th>
-              <th>Remove</th>
-            </tr>
-          </thead>
-
-        </table> */}
-
+     
 
 
 
@@ -153,11 +145,36 @@ export default function ShoppingCart() {
 </div>
 
 
-
-
-
-
      </div>
+
+<div className='container mx-auto space-y-6 px-10'>
+
+<div className='flex justify-between items-center'>
+<h1 className='text-xl font-semibold text-left'>Image</h1>
+  <h1 className='text-xl font-semibold text-left'>Name</h1>
+  <h1 className='text-xl font-semibold text-left'>Age</h1>
+  <h1 className='text-xl font-semibold text-left'>Gender</h1>
+  <h1 className='text-xl font-semibold text-left'>Class</h1>
+</div>
+
+<div className='flex justify-between'>
+<img className='w-14 h-14' src="images/img-3.jpg" alt="" />
+  <h1>Titah</h1>
+  <h1>24</h1>
+  <h1>male</h1>
+  <h1>year 2</h1>
+</div>
+
+<div className='flex justify-between'>
+<img className='w-14 h-14' src="images/img-2.jpg" alt="" />
+  <h1 className='text-left'>Baudwin</h1>
+  <h1>25</h1>
+  <h1>male</h1>
+  <h1>year 3</h1>
+</div>
+  
+</div>
+
 </div>
 
 
