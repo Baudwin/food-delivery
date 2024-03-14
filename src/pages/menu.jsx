@@ -1,16 +1,26 @@
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import items from "../items"
 import { useCartStore } from "../store/useCartStore"
 
 export default function Menu() {
-    const addToCart = useCartStore(state=>state.addToCart)
+  const addToCart = useCartStore(state=>state.addToCart)
+  const [query, setQuery] = useState("")
 
-  const [filter, setFilter] = useState([])
+  const filteredItems = useMemo(()=>{
+    return  items.filter(item=>item.name.toLowerCase().includes(query.toLowerCase()))
+  }, [items, query])
 
-  useEffect(()=>{
-   const filteredItems =  items.filter(item=>item.category === filter)
-    setFilter([filteredItems])
-  },[])
+  const search = (e)=>{
+    const {value} = e.target
+    setQuery(value)
+  }
+
+  const filterCategory = (e)=>{
+    const {value} = e.target
+    // console.log(items.filter(item=>item.category.toLowerCase().includes(value.toLowerCase())));
+    
+  }
+
  
 const AddToCart = (item) =>{
 addToCart(item)
@@ -24,15 +34,23 @@ addToCart(item)
 <h1 className=" text-4xl font-bold text-white">Menu</h1>
 </div>
 
-<div className=" grid lg:grid-cols-12 gap-4 lg:container mx-auto py-10 lg:px-10 sm:px-5 xsm:px-5 xl:px:10">
+{/* <div className="flex gap-4 justify-center items-center mt-5 text-white">
+  <button className="bg-amber-600 p-3 rounded shadow-md">Foods</button>
+  <button className="bg-amber-600 p-3 rounded shadow-md">Drinks</button>
+  <button className="bg-amber-600 p-3 rounded shadow-md">Snacks</button>
+  <button className="bg-amber-600 p-3 rounded shadow-md">Desert</button>
+  
+</div> */}
+
+<div className=" grid lg:grid-cols-12 gap-2 lg:container mx-auto py-7 lg:px-10 sm:px-5 xsm:px-5 xl:px:10">
+
 
 {/* Div with all products  */}
 <div className="products lg:col-span-9 xl:col-span-9 bg-grey-300 border py-10 px-5 shadow-md">
 
+<div className="grid lg:grid-cols-3 xl:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 gap-4 ">
 
-<div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 gap-4 ">
-
-{items.map(item=>{
+{filteredItems.length != 0 ? filteredItems.map(item=>{
   return <div key={item.id} className=" relative">
 <img className=" shadow-sm h-44 w-full object-cover border" src={`/images/${item.img}.jpg`} alt="img" />
 <h1 className="font-semibold text-md">{item.name}</h1>
@@ -49,7 +67,7 @@ addToCart(item)
 </button>
 </div>
 </div>
-})}
+}) : <h1 className="text-4xl text-red-500 ">No item matches your search results... </h1>}
 
 </div>
 
@@ -64,7 +82,7 @@ addToCart(item)
 
   <div className="p-2">
   <div className="flex">
-    <input className=" border leading-tigh bg-red-100 focus:outline-none w-full px-2 py-2" placeholder="Search item" type="text" name=""  id="" />
+    <input className=" border leading-tigh bg-red-100 focus:outline-none w-full px-2 py-2" placeholder="Search item" type="text" name="query" onChange={search} id="" />
     <button className="bg-amber-600 text-white p-2">
        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search text-white font-bold" viewBox="0 0 16 16">
         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
@@ -76,10 +94,10 @@ addToCart(item)
 <div className="p-2 space-y-3">
   <h1 className="font-bold text-2xl">Category</h1>
   <ul className="space-y-1">
-    <li className="text-lg"><input type="checkbox" /> Food</li>
-    <li className="text-lg"><input type="checkbox" /> Snacks</li>
-    <li className="text-lg"><input type="checkbox" /> Drinks</li>
-    <li className="text-lg"><input type="checkbox" /> Desert</li>
+    <li className="text-lg"><input onChange={filterCategory} value={"food"} type="checkbox" /> Food</li>
+    <li className="text-lg"><input onChange={filterCategory} value={"snack"} type="checkbox" /> Snacks</li>
+    <li className="text-lg"><input onChange={filterCategory} value={"drinks"} type="checkbox" /> Drinks</li>
+    <li className="text-lg"><input onChange={filterCategory} value={"desert"} type="checkbox" /> Desert</li>
   </ul>
 
 </div>

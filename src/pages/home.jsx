@@ -18,7 +18,7 @@ export default function Home() {
 <div className=' lg:p-10 md:p-10 bg-amber-50 py-4'>
 
 <div className=' container mx-auto py-7 mt- rounded shadow-md px-4'>
-    <div className='grid lg:grid-cols-4 md:grid-cols-4 gap-3'>
+    <div className='grid lg:grid-cols-4 md:grid-cols-4 sm:grid-cols gap-3'>
         <div className='border shadow-sm p-3 flex flex-col justify-center items-center space-y-2'>
             <img className='rounded-full w-28 h-28' src="images/img-1.jpg" alt="foods" />
             <h1 className='text-lg font-semibold'>Food</h1>

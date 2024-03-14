@@ -29,6 +29,37 @@ export const useCartStore = create((set, get)=>({
      set({cart : updatedCart})
      localStorage.setItem('cart', JSON.stringify(updatedCart))
      toast.error(` ${cartItem.name} removed from cart `)
-    }
+    }, 
+
+    increaseItemQuantity : (cartItem)=>{
+    const userCart = get().cart 
+    const itemIndex = userCart.findIndex(item=>item.id === cartItem.id)
+    if (userCart[itemIndex].quantity >= 1) {
+        userCart[itemIndex].quantity += 1
+    localStorage.setItem('cart', JSON.stringify(get().cart))
+    toast.info(`Quantity increased in cart`)
+    } 
+
+    }, 
+
+    decreaseItemQuantity : (cartItem)=>{
+        const userCart = get().cart 
+        const itemIndex = userCart.findIndex(item=>item.id === cartItem.id) 
+        if (userCart[itemIndex].quantity > 1) {
+            userCart[itemIndex].quantity -= 1
+        }
+         else if(userCart[itemIndex].quantity === 1){
+            const updatedCart = userCart.filter(item=>item.id != cartItem.id)
+            set({cart : updatedCart})
+            localStorage.setItem('cart', JSON.stringify(updatedCart))
+            toast.error(` ${cartItem.name} removed from cart `)
+        }
+        localStorage.setItem('cart', JSON.stringify(get().cart ))
+        },
+
+        clearCart:()=>{
+            localStorage.removeItem("cart")
+            set({cart:[]})
+        }
     
 }))
