@@ -71,7 +71,7 @@ export default function ShoppingCart() {
             </thead>
             <tbody className=''>
           {cartItems?.map(item=>{
-            return   <tr key={item.id} className='border-t-2 '>
+            return   <tr key={item.id} className='border-t-2 border-b-2'>
            
             <td className='flex flex-col py-4 gap-1 '>
                 <img className='w-24 h-24 rounded-full object-cover' src={`/images/${item.img}.jpg`} alt="img" />
@@ -106,9 +106,18 @@ export default function ShoppingCart() {
 
         </table>
         
-            {/* <div className='flex justify-end items-end'>
-            <button onClick={()=>{clear()}} className='bg-red-500 px-3 py-2 text-white rounded '>Clear Cart</button>
-            </div> */}
+            <div className='flex justify-between items-center p-2'>
+
+            <NavLink to={'/menu'}> <button className=' text-gray-500 text-lg'>
+              <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-left inline-block" viewBox="0 0 16 16">
+            <path fillRule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+            </svg> </span>
+              Continue Shopping
+              </button>
+              </NavLink>
+
+            {/* <button onClick={()=>{clear()}} className='bg-red-500 px-2 py-2 text-white rounded shadow-sm'>Clear Cart</button> */}
+            </div>
      
         </div>
      
