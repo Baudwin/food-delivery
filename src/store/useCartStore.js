@@ -5,7 +5,7 @@ const cartData  = localStorage.getItem('cart')
 
 export const useCartStore = create((set, get)=>({
     cart : cartData ? JSON.parse(cartData) : [],
-
+    total : 0,
 
     addToCart : (item)=>{
         const userCart = get().cart
@@ -52,14 +52,21 @@ export const useCartStore = create((set, get)=>({
             const updatedCart = userCart.filter(item=>item.id != cartItem.id)
             set({cart : updatedCart})
             localStorage.setItem('cart', JSON.stringify(updatedCart))
-            // toast.error(` ${cartItem.name} removed from cart `)
+            toast.error(` ${cartItem.name} removed from cart `)
         }
         localStorage.setItem('cart', JSON.stringify(get().cart ))
+        },
+
+        setTotal : ()=>{
+            const userCart = get().cart
+            for (const item of userCart) {
+                console.log(item.price * item.quantity);
+            }
         },
 
         clearCart:()=>{
             localStorage.removeItem("cart")
             set({cart:[]})
-        }
+        }, 
     
 }))

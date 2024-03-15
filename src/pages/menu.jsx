@@ -48,11 +48,11 @@ addToCart(item)
 {/* Div with all products  */}
 <div className="products lg:col-span-9 xl:col-span-9 bg-grey-300 border py-10 px-5 shadow-md">
 
-<div className="grid lg:grid-cols-3 xl:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 gap-4 ">
+<div className="grid lg:grid-cols-3 xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 gap-4 ">
 
 {filteredItems.length != 0 ? filteredItems.map(item=>{
-  return <div key={item.id} className=" relative">
-<img className=" shadow-sm h-44 w-full object-cover border" src={`/images/${item.img}.jpg`} alt="img" />
+  return <div key={item.id} className="">
+<img loading='lazy' decoding='async' fetchPriority='high' className=" shadow-sm h-44 w-full object-cover border" src={`/images/${item.img}.jpg`} alt="img" />
 <h1 className="font-semibold text-md">{item.name}</h1>
 <div className="flex justify-between items-center">
 <p className="text-gray-600 ">{item.price} CFA</p>
