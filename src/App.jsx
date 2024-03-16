@@ -7,6 +7,7 @@ import Home from './pages/home'
 import { ToastContainer } from 'react-toastify'
 
 function App() {
+
   const router = createBrowserRouter (
    
     createRoutesFromElements (

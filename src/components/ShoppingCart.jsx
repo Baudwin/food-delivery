@@ -9,9 +9,15 @@ export default function ShoppingCart() {
   const increase = useCartStore(state=>state.increaseItemQuantity)
   const decrease = useCartStore(state=>state.decreaseItemQuantity)
   const clear = useCartStore(state=>state.clearCart)
-  const total = useCartStore(state=>state.setTotal)
+  const subTotal = useCartStore(state=>state.subTotal)
+  const setCartTotal = useCartStore(state=>state.setTotal)
 
   const [qty, setQty] = useState()
+
+  useEffect(()=>{
+    setCartTotal()
+  }, [cartItems,qty])
+
   const removeItem = (item)=>{
     removeFromCart(item)
   }
@@ -31,18 +37,18 @@ export default function ShoppingCart() {
   
   return (
     <>
-{/* <div style={{backgroundImage:""}} className=' p-14 bg-[url("/images/img-2.jpg")]  bg-cover flex justify-center items-center '>
-            <h1 className='text-5xl font-bold  text-center text-white'>Shopping Cart</h1>
-        </div> */}
+<div style={{backgroundImage:""}} className='p-14 bg-[url("/images/img-2.jpg")]  bg-cover flex justify-center items-center '>
+            <h1 className='text-4xl font-bold  text-center text-white'> Cart</h1>
+        </div>
 
     {
       // if 
 
       cartItems.length === 0 ?
       <div className= ' flex flex-col justify-center items-center gap-y-5'>
-          <img className=' w-[350px]' src="/images/cart1.jpg" alt="" />
-       <h1 className='text-3xl font-semibold text-amber-700'>
-     your cart is empty...
+          <img className=' w-[300px]' src="/images/cart1.jpg" alt="" />
+       <h1 className='text-3xl font-bold text-amber-700'>
+     Your cart is empty
     </h1>
    <NavLink to={'/menu'}> <button className=' text-gray-500 text-lg'>
    
@@ -58,7 +64,6 @@ export default function ShoppingCart() {
 
 // else start 
 <div className=''>
-
      <div className='lg:container xl:container grid grid-cols-12 gap-2  mx-auto py-10 lg:px-16 sm:px-1.5 md:px-4'>
 
       <div className=' overflow-auto border px- py-3 shadow-sm lg:col-span-9 xl:col-span-9 sm:col-span-12 md:col-span-12 h-fit'>
@@ -139,7 +144,7 @@ export default function ShoppingCart() {
 
   <div className='shadow-sm border p-4  h-fit'>
   <form className='space-y-2' action="">
-  <h1 className='font-semibold text-lg underline'>Contact Details</h1>
+  <h1 className='font-bold text-md'>Contact Details</h1>
   <div className='flex flex-col gap-2'>
   <label className='font-medium text-gray-500 text-sm' htmlFor="">Location <span className='text-red-600'>*</span> </label>
   <input className='rounded shadow p-2 focus:outline-none' type="text" placeholder='Enter Location' name="" id="" />
@@ -147,7 +152,7 @@ export default function ShoppingCart() {
   <label className='font-medium text-gray-500 text-sm' htmlFor="">Tel <span className='text-red-600'>*</span> </label> 
   <input required className='rounded shadow p-2 focus:outline-none' type="text" placeholder='Enter phone number' name="" id="" />
 
-  <h1 className='font-semibold text-lg underline'>Delivery Details</h1>
+  <h1 className='font-bold '>Delivery Details</h1>
 
   <label className='font-medium text-gray-500 text-sm' htmlFor="">Date <span className='text-red-600'>*</span> </label> 
   <input className='rounded shadow p-2 focus:outline-none' type="date"  name="" id="" />
@@ -155,8 +160,8 @@ export default function ShoppingCart() {
   <label className='font-medium text-gray-500 text-sm' htmlFor="">Time <span className='text-red-600'>*</span> </label> 
   <input className='rounded shadow p-2 focus:outline-none' type="time"  name="" id="" />
 
-  <label className='font-medium text-gray-500 text-sm' htmlFor="">Aditional detail</label>
-  <textarea className='rounded shadow border focus-visible:outline-none p-2' name="" id="" cols="30" rows="2"></textarea>
+  {/* <label className='font-medium text-gray-500 text-sm' htmlFor="">Aditional detail</label> */}
+  {/* <textarea className='rounded shadow border focus-visible:outline-none p-2' name="" id="" cols="30" rows="2"></textarea> */}
  </div>
  
    <button  className='text-white font-medium bg-green-500 px-3 py-1 rounded'>Save</button>
@@ -170,7 +175,7 @@ export default function ShoppingCart() {
   
   <div className='flex justify-between'>
   <p className='font-medium'>Sub total</p>
-  <span className='text-gray-600'>15000</span>
+  <span className='text-gray-600'>{subTotal}</span>
   </div>
 
   <div className='flex justify-between'>
@@ -187,7 +192,7 @@ export default function ShoppingCart() {
 
   <div className='flex justify-between'>
   <p className='font-medium'>TOTAL</p>
-  <span className='text-gray-600'>15700 CFA</span>
+  <span className='text-gray-600'>{subTotal + 200 + 500} CFA</span>
   </div>
 
   <div className='flex justify-between'>

@@ -67,7 +67,7 @@ addToCart(item)
 </button>
 </div>
 </div>
-}) : <h1 className="text-4xl text-red-500 ">No item matches your search results... </h1>}
+}) : <h1 className="text-2xl text-red-500 font-semibold"> "{query}" not found!!</h1>}
 
 </div>
 

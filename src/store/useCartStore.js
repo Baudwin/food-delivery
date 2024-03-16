@@ -5,7 +5,7 @@ const cartData  = localStorage.getItem('cart')
 
 export const useCartStore = create((set, get)=>({
     cart : cartData ? JSON.parse(cartData) : [],
-    total : 0,
+    subTotal : 0,
 
     addToCart : (item)=>{
         const userCart = get().cart
@@ -58,10 +58,17 @@ export const useCartStore = create((set, get)=>({
         },
 
         setTotal : ()=>{
-            const userCart = get().cart
-            for (const item of userCart) {
-                console.log(item.price * item.quantity);
-            }
+          let {total} = get().cart.reduce((cartSubTotal, cartItem)=>{
+            
+            const {price,quantity}= cartItem
+            const itemTotal = price * quantity
+            cartSubTotal.total += itemTotal
+            return cartSubTotal
+           }, 
+           {
+            total:0
+           })
+           set({subTotal:total})
         },
 
         clearCart:()=>{

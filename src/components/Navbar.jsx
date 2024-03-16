@@ -21,7 +21,7 @@ const display = ()=>{
 
             <nav className='flex lg:justify-around md:justify-between sm:justify-between items-center py-4 sm:px-4 md:px-4 '>
 
-                  <h1 className='text-3xl font-bold '>FOODIE</h1>
+                  <h1 className='text-3xl font-bold text-teal-400 '>FOODIE</h1>
    
                 <div className='flex gap-4 sm:hidden md:hidden'>
                 <NavLink to={'/'} className='text-lg'>Home</NavLink>
