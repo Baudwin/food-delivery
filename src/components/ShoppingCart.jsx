@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useCartStore } from '../store/useCartStore'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 
 export default function ShoppingCart() {
@@ -63,14 +63,14 @@ export default function ShoppingCart() {
        : 
 
 // else start 
-<div className=''>
-     <div className='lg:container xl:container grid grid-cols-12 gap-2  mx-auto py-10 lg:px-16 sm:px-1.5 md:px-4'>
 
-      <div className=' overflow-auto border px- py-3 shadow-sm lg:col-span-9 xl:col-span-9 sm:col-span-12 md:col-span-12 h-fit'>
+   <div className='lg:container xl:container  py-10 sm:px-2 md:px-4'>
+
+      <div className=' overflow-auto border px- py-3 shadow-md lg:col-span-12 xl:col-span-12 sm:col-span-12 md:col-span-12 h-fit'>
         <table className='w-full'>
             <thead className='text-left '>
                 <tr className=' '>
-                    <th className='font-semibold pb-2 px-2 text-lg text-black'>Description</th>
+                    <th className='font-semibold pb-2 px-2 text-lg text-black'>Item</th>
                     <th className='font-semibold pb-2 px-2 text-lg text-black'>Quantity</th>
                     <th className='font-semibold pb-2 px-2 text-lg text-black'>Total</th>
                     <th className='font-semibold pb-2 px-2 text-lg text-black'>Remove</th>
@@ -80,8 +80,8 @@ export default function ShoppingCart() {
           {cartItems?.map(item=>{
             return   <tr key={item.id} className='border-t'>
            
-            <td className='flex flex-col py-4 gap-1 px-3'>
-                <img loading='lazy' decoding='async' fetchpriority='high' className='w-24 h-24 rounded-full object-cover' src={`/images/${item.img}.jpg`} alt="img" />
+            <td className='flex py-4 px-3'>
+                <img loading='lazy' decoding='async' fetchpriority='high' className='w-24 h-24 object-cover' src={`/images/${item.img}.jpg`} alt="img" />
                 <div className='flex flex-col px-4'>
                 <span className=' text-md font-semibold'>{item.name}</span>
                 <span className='text-gray-600 text-sm font-medium '>{item.price} CFA</span>
@@ -138,83 +138,56 @@ export default function ShoppingCart() {
         </div>
      
 
-<div className=' lg:col-span-3 xl:col-span-3 sm:col-span-12 md:col-span-12'>
 
-<div className='space-y-2'>
 
-  <div className='shadow-sm border p-4  h-fit'>
-  <form className='space-y-2' action="">
-  <h1 className='font-bold text-md'>Contact Details</h1>
-  <div className='flex flex-col gap-2'>
-  <label className='font-medium text-gray-500 text-sm' htmlFor="">Location <span className='text-red-600'>*</span> </label>
-  <input className='rounded shadow p-2 focus:outline-none' type="text" placeholder='Enter Location' name="" id="" />
+<div className=' grid grid-cols-12 gap-4 py-12'>
 
-  <label className='font-medium text-gray-500 text-sm' htmlFor="">Tel <span className='text-red-600'>*</span> </label> 
-  <input required className='rounded shadow p-2 focus:outline-none' type="text" placeholder='Enter phone number' name="" id="" />
-
-  <h1 className='font-bold '>Delivery Details</h1>
-
-  <label className='font-medium text-gray-500 text-sm' htmlFor="">Date <span className='text-red-600'>*</span> </label> 
-  <input className='rounded shadow p-2 focus:outline-none' type="date"  name="" id="" />
-
-  <label className='font-medium text-gray-500 text-sm' htmlFor="">Time <span className='text-red-600'>*</span> </label> 
-  <input className='rounded shadow p-2 focus:outline-none' type="time"  name="" id="" />
-
-  {/* <label className='font-medium text-gray-500 text-sm' htmlFor="">Aditional detail</label> */}
-  {/* <textarea className='rounded shadow border focus-visible:outline-none p-2' name="" id="" cols="30" rows="2"></textarea> */}
- </div>
- 
-   <button  className='text-white font-medium bg-green-500 px-3 py-1 rounded'>Save</button>
-</form>
-</div>
-
-  {/* Checkout div  */}
-<form action="">
-<div className='shadow border p-5 lg:col-start-3 space-y-2 h-fit'>
-  <h1 className='font-bold text-lg'>Order Summary</h1>
+<div className='lg:col-span-6 xl:col-span-6 md:col-span-12 sm:col-span-12 space-y-3'>
+<h1 className='text-xl font-bold'>Coupon Code</h1>
+  <div className=' border rounded-sm shadow-md p-6 space-y-2'>
+    <p className='text-gray-500 text-sm'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis voluptas maiores impedit officia.</p>
+    <div className='flex'>
+      <input className=' focus:outline-none p-2 w-full border-y border-l' type="text" name="" id="" />
+    <button className=' p-2 bg-teal-500 text-white'>Apply</button>
+    </div>
+  </div>
   
-  <div className='flex justify-between'>
-  <p className='font-medium'>Sub total</p>
-  <span className='text-gray-600'>{subTotal}</span>
   </div>
 
-  <div className='flex justify-between'>
-  <p className='font-medium'>Shipping</p>
-  <span className='text-gray-600'>500</span>
-  </div>
 
-  <div className='flex justify-between'>
-  <p className='font-medium'>Discount</p>
-  <span className='text-gray-600'>200</span>
-  </div>
- 
-  <hr />
+<div className='lg:col-span-6 xl:col-span-6 md:col-span-12 sm:col-span-12 space-y-3'>
+  <h1 className='font-bold text-xl'>Total Bill</h1>
 
-  <div className='flex justify-between'>
-  <p className='font-medium'>TOTAL</p>
-  <span className='text-gray-600'>{subTotal + 200 + 500} CFA</span>
+  <div className='border rounded-sm shadow-md'>
+  <div className='p-6'>
+  <div className='flex justify-between items-center'>
+    <h3 className=' font-bold'>Cart Subtotal</h3>
+    <span className='font-semibold '>{subTotal} CAF</span>
   </div>
-
-  <div className='flex justify-between'>
-  <p className='font-medium'>Estimated delivery</p>
-  <span className='text-gray-600'>{date.toLocaleTimeString() } </span>
+  <div className='flex justify-between items-center'>
+    <h3 className='text-gray-700 text-sm'>Shipping Charge</h3>
+    <span className='font-thin text-sm'>{500} CAF</span>
+  </div>  
   </div>
- 
-   <button disabled className='text-white font-medium bg-blue-500 p-2 w-full '>Place Order</button>
-
+<div className='flex justify-between items-center border-t-2 px-6 py-3'>
+  <h3 className='font-bold'>Total Amount</h3>
+  <span className='font-semibold'>{subTotal + 500} CAF</span>
 </div>
 
-</form>
+ </div>
 
+<Link to={'/checkout'}>
+<button className='w-full bg-teal-500 py-3 shadow rounded-sm text-white'>Proceed to Checkout</button>
+</Link>
 </div>
+
+
   
 </div>
 
 
      </div>
 
-
-</div>
 
 
     }

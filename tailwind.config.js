@@ -6,6 +6,13 @@ export default {
   ],
   theme: {
     extend: {
+      container : {
+        center : true,
+        screens:{
+          lg: "1024px",
+          xl:"1024px"
+        }
+      },
       screens: {
         'sm': {'min': '320px', 'max': '599px'},
       

@@ -2,10 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export default function Footer() {
-  return (   <footer className='bg-slate-950 text-white mt-8'>
+  return (   <footer className='bg-black text-white'>
    
        
-       <div className=' bg-slate-900 p-10 lg:px-16 lg:flex xl:flex justify-between items-center mb-10 sm:space-y-4 md:space-y-4'>
+       <div className=' p-10 lg:px-16 lg:flex xl:flex justify-between items-center mb-10 sm:space-y-4 md:space-y-4'>
         <div className='space-y-2'>
         <h1 className=' text-4xl'> <span className='text-teal-400'>Lorem</span> <span>ipsum dolor sit amet?</span> </h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, eum.</p>

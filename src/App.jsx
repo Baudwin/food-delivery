@@ -5,6 +5,7 @@ import RootLayout from './layout/RootLayout'
 import Menu from './pages/menu'
 import Home from './pages/home'
 import { ToastContainer } from 'react-toastify'
+import { Checkout } from './pages/checkout'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <Route index element={<Home/>}/>
         <Route path='shopping-cart' element={<ShoppingCart/>}></Route>
         <Route path='/menu' element={<Menu/>}></Route>
+        <Route path='/checkout' element={<Checkout/>}></Route>
       </Route>
     )
   )
