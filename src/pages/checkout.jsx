@@ -9,7 +9,7 @@ export const Checkout = () => {
             <h1 className='text-4xl font-bold  text-center text-white'> Checkout</h1>
         </div>
 
-        <div className='container py-12 grid grid-cols-12 gap-4'> 
+        <div className='container py-12 grid grid-cols-12 sm:px-3 md:px-4 gap-4'> 
 
 
             <div className=' lg:col-span-8 xl:col-span-8 sm:col-span-12 md:col-span-12 space-y-6'>
@@ -20,36 +20,36 @@ export const Checkout = () => {
                 <div className='flex sm:flex-col lg:gap-4 xl:gap-4 sm:gap-3 md:gap-3'>
                     <div className='flex flex-col flex-1 gap-2'>
                     <label className='text-lg text-gray-500' htmlFor="">First name</label>
-                     <input className='border p-1.5 focus:outline-none shadow-sm' type="text" />  
+                     <input className='border p-2 focus:outline-none shadow-sm' type="text" />  
                     </div>
 
                         <div className='flex flex-col flex-1 gap-2'>
                         <label className='text-lg text-gray-500 ' htmlFor="">Last name</label>
-                        <input className=' shadow-sm border p-1.5 focus:outline-none' type="text" />
+                        <input className=' shadow-sm border p-2 focus:outline-none' type="text" />
                         </div>
                 </div>
 
                 <div className='flex sm:flex-col lg:gap-4 xl:gap-4 sm:gap-3 md:gap-3'>
                     <div className='flex flex-col flex-1 gap-2'>
                     <label className='text-lg text-gray-500' htmlFor="">Email</label>
-                     <input className=' shadow-sm border p-1.5 focus:outline-none' type="text" />  
+                     <input className=' shadow-sm border p-2 focus:outline-none' type="text" />  
                     </div>
 
                         <div className='flex flex-col flex-1 gap-2'>
                         <label className='text-lg text-gray-500' htmlFor="">Phone number</label>
-                        <input className=' shadow-sm border p-1.5 focus:outline-none' type="text" />
+                        <input className=' shadow-sm border p-2 focus:outline-none' type="text" />
                         </div>
                 </div>
 
                 <div className='flex sm:flex-col gap-4 lg:gap-4 xl:gap-4 sm:gap-3 md:gap-3'>
                     <div className='flex flex-col flex-1 gap-2'>
                     <label className='text-lg text-gray-500 ' htmlFor="">Address 1</label>
-                     <input className='border p-1.5 focus:outline-none' type="text" />  
+                     <input className='border p-2 focus:outline-none' type="text" />  
                     </div>
 
                         <div className='flex flex-col flex-1 gap-2'>
                         <label className='text-lg text-gray-500' htmlFor="">Address 2</label>
-                        <input className=' shadow-sm border p-1.5 focus:outline-none' type="text" />
+                        <input className=' shadow-sm border p-2 focus:outline-none' type="text" />
                         </div>
                 </div>
 
@@ -60,9 +60,9 @@ export const Checkout = () => {
      
                 </div>
 
-                <div className='grid lg:grid-cols-2 xl:grid-cols-2 lg:gap-5 xl:gap-5 sm:gap-3 md:gap-3'>
+                <div className='grid lg:grid-cols-2 xl:grid-cols-2 lg:gap-5 xl:gap-5 sm:gap-3 md:gap-3 '>
                     
-                    <button className='text-slate-600 py-2  bg-white border shadow-sm flex justify-center items-center gap-1'>
+                    <button className='text-slate-600 py-3  bg-white border shadow-sm flex justify-center items-center gap-1'>
                         <span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-left-short mt-0.5" viewBox="0 0 16 16">
                         <path fillRule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5"/>

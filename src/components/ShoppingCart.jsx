@@ -64,9 +64,9 @@ export default function ShoppingCart() {
 
 // else start 
 
-   <div className='lg:container xl:container  py-10 sm:px-2 md:px-4'>
+   <div className='lg:container xl:container py-10 sm:px-2.5 md:px-4'>
 
-      <div className=' overflow-auto border px- py-3 shadow-md lg:col-span-12 xl:col-span-12 sm:col-span-12 md:col-span-12 h-fit'>
+      <div className=' overflow-auto border px- py-3 shadow lg:col-span-12 xl:col-span-12 sm:col-span-12 md:col-span-12 h-fit'>
         <table className='w-full'>
             <thead className='text-left '>
                 <tr className=' '>
@@ -80,9 +80,9 @@ export default function ShoppingCart() {
           {cartItems?.map(item=>{
             return   <tr key={item.id} className='border-t'>
            
-            <td className='flex py-4 px-3'>
+            <td className='flex flex-col py-4 px-2.5'>
                 <img loading='lazy' decoding='async' fetchpriority='high' className='w-24 h-24 object-cover' src={`/images/${item.img}.jpg`} alt="img" />
-                <div className='flex flex-col px-4'>
+                <div className='flex flex-col'>
                 <span className=' text-md font-semibold'>{item.name}</span>
                 <span className='text-gray-600 text-sm font-medium '>{item.price} CFA</span>
                 </div>
@@ -144,7 +144,7 @@ export default function ShoppingCart() {
 
 <div className='lg:col-span-6 xl:col-span-6 md:col-span-12 sm:col-span-12 space-y-3'>
 <h1 className='text-xl font-bold'>Coupon Code</h1>
-  <div className=' border rounded-sm shadow-md p-6 space-y-2'>
+  <div className=' border rounded-sm shadow p-6 space-y-2'>
     <p className='text-gray-500 text-sm'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis voluptas maiores impedit officia.</p>
     <div className='flex'>
       <input className=' focus:outline-none p-2 w-full border-y border-l' type="text" name="" id="" />
@@ -158,7 +158,7 @@ export default function ShoppingCart() {
 <div className='lg:col-span-6 xl:col-span-6 md:col-span-12 sm:col-span-12 space-y-3'>
   <h1 className='font-bold text-xl'>Total Bill</h1>
 
-  <div className='border rounded-sm shadow-md'>
+  <div className='border rounded-sm shadow'>
   <div className='p-6'>
   <div className='flex justify-between items-center'>
     <h3 className=' font-bold'>Cart Subtotal</h3>
@@ -176,9 +176,12 @@ export default function ShoppingCart() {
 
  </div>
 
-<Link to={'/checkout'}>
+<div className=''>
+ <Link to={'/checkout'}>
 <button className='w-full bg-teal-500 py-3 shadow rounded-sm text-white'>Proceed to Checkout</button>
-</Link>
+</Link> 
+</div>
+
 </div>
 
 
