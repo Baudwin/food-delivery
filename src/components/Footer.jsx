@@ -10,9 +10,9 @@ export default function Footer() {
         <h1 className=' text-4xl'> <span className='text-teal-400'>Lorem</span> <span>ipsum dolor sit amet?</span> </h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, eum.</p>
         </div>
-        <div>                                                                                                                                                               
-        <input className='p-2 focus:outline-none' type="text" name="" id="" />
-        <button className='p-2 bg-teal-400 '>Subscribe</button>
+        <div className='flex gap-3'>                                                                                                                                                               
+        <input className='p-2 focus:outline-none text-black' type="text" name="" id="" />
+        <button className='p-2 bg-amber-500 '>Subscribe</button>
         </div>
        
        </div>

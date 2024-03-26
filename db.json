@@ -1,0 +1,64 @@
+{
+  "items": [
+    {
+      "id": "65ff7d04f3290630c824cba9",
+      "itemName": "Refined Rubber Table",
+      "price": "590.00",
+      "img": "https://loremflickr.com/640/480?lock=2050689897332736"
+    },
+    {
+      "id": "65ff7d04f3290630c824cbaa",
+      "itemName": "Modern Concrete Chicken",
+      "price": "834.00",
+      "img": "https://loremflickr.com/640/480?lock=2962192699752448"
+    },
+    {
+      "id": "65ff7d04f3290630c824cbab",
+      "itemName": "Ergonomic Frozen Gloves",
+      "price": "835.00",
+      "img": "https://picsum.photos/seed/y690Wfw/640/480"
+    },
+    {
+      "id": "65ff7d04f3290630c824cbac",
+      "itemName": "Handmade Fresh Chicken",
+      "price": "58.00",
+      "img": "https://picsum.photos/seed/pmJDR/640/480"
+    },
+    {
+      "id": "65ff7d04f3290630c824cbad",
+      "itemName": "Ergonomic Concrete Bacon",
+      "price": "739.00",
+      "img": "https://loremflickr.com/640/480?lock=1668046150172672"
+    },
+    {
+      "id": "65ff7d04f3290630c824cbae",
+      "itemName": "Rustic Soft Chicken",
+      "price": "337.00",
+      "img": "https://loremflickr.com/640/480?lock=5020276114849792"
+    },
+    {
+      "id": "65ff7d04f3290630c824cbaf",
+      "itemName": "Small Cotton Towels",
+      "price": "440.00",
+      "img": "https://picsum.photos/seed/kU8y3J5/640/480"
+    },
+    {
+      "id": "65ff7d04f3290630c824cbb0",
+      "itemName": "Ergonomic Concrete Shirt",
+      "price": "612.00",
+      "img": "https://loremflickr.com/640/480?lock=3879976138964992"
+    },
+    {
+      "id": "65ff7d04f3290630c824cbb1",
+      "itemName": "Intelligent Wooden Chicken",
+      "price": "123.00",
+      "img": "https://loremflickr.com/640/480?lock=4244823049502720"
+    },
+    {
+      "id": "65ff7d04f3290630c824cbb2",
+      "itemName": "Luxurious Metal Mouse",
+      "price": "430.00",
+      "img": "https://loremflickr.com/640/480?lock=2227812251467776"
+    }
+  ]
+}

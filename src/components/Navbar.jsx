@@ -17,7 +17,7 @@ const display = ()=>{
   return (
     <div className='sticky top-0'>
     
-        <header className=' bg-slate-950  text-white '>
+        <header className=' bg-black  text-white '>
 
             <nav className='flex lg:justify-around md:justify-between sm:justify-between items-center py-4 sm:px-4 md:px-4 '>
 

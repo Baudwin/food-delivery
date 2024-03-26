@@ -78,12 +78,13 @@ export default function ShoppingCart() {
             </thead>
             <tbody className=''>
           {cartItems?.map(item=>{
-            return   <tr key={item.id} className='border-t'>
+            return   <tr key={item._id} className='border-t'>
            
             <td className='flex flex-col py-4 px-2.5'>
-                <img loading='lazy' decoding='async' fetchpriority='high' className='w-24 h-24 object-cover' src={`/images/${item.img}.jpg`} alt="img" />
+              
+                <img loading='lazy' decoding='async' fetchpriority='high' className='w-20 h-20 object-cover' src={`http://localhost:3005/${item?.img}`} alt="img" />
                 <div className='flex flex-col'>
-                <span className=' text-md font-semibold'>{item.name}</span>
+                <span className=' text-md font-semibold'>{item.itemName}</span>
                 <span className='text-gray-600 text-sm font-medium '>{item.price} CFA</span>
                 </div>
 
@@ -148,7 +149,7 @@ export default function ShoppingCart() {
     <p className='text-gray-500 text-sm'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis voluptas maiores impedit officia.</p>
     <div className='flex'>
       <input className=' focus:outline-none p-2 w-full border-y border-l' type="text" name="" id="" />
-    <button className=' p-2 bg-teal-500 text-white'>Apply</button>
+    <button className=' p-2 bg-amber-500 text-white'>Apply</button>
     </div>
   </div>
   
@@ -178,7 +179,7 @@ export default function ShoppingCart() {
 
 <div className=''>
  <Link to={'/checkout'}>
-<button className='w-full bg-teal-500 py-3 shadow rounded-sm text-white'>Proceed to Checkout</button>
+<button className='w-full bg-amber-500 py-3 shadow rounded-sm text-white'>Proceed to Checkout</button>
 </Link> 
 </div>
 

@@ -11,3 +11,13 @@ th {
 .category-img{
   @apply h-44 w-full object-cover rounded
 }
+
+.sidebar a.active{
+ @apply bg-amber-600 text-white
+}
+.sidebar a:hover{
+  @apply bg-amber-600
+ }
+ .sidebar a{
+  @apply border-b
+ }
