@@ -23,7 +23,7 @@ export const useAddItem = ()=>{
     return useMutation({
         mutationKey : ['addItem'], 
         mutationFn : (itemData)=>{
-         return axios.post('http://localhost:3005/add-item' || "https://food-delivery-app-backend-xi.vercel.app/", itemData)
+         return axios.post('http://localhost:3005/add-item' || "https://food-delivery-app-backend-xi.vercel.app", itemData)
         },
         onError,
          onSuccess : (data)=>{
