@@ -21,3 +21,26 @@ th {
  .sidebar a{
   @apply border-b
  }
+ button:disabled{
+  @apply bg-gray-500
+ }
+ .category button:hover{
+  @apply text-[23px] 
+ }
+ .category button{
+  @apply  py-2 text-lg font-semibold
+ }
+ .category button.active{
+  @apply border-b-8 border-b-amber-500 text-amber-700 font-semibold
+ }
+
+ .category button.active:hover{
+  @apply text-lg
+ }
+
+ .profile-nav a:hover{
+  @apply  bg-teal-500 text-white
+ }
+ .profile-nav a{
+  @apply  text-xl  py-4 px-3 border
+ }

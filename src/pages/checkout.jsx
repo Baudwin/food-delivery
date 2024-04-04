@@ -1,9 +1,46 @@
-import React from 'react'
-import { Link, Navigate } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { useCartStore } from '../store/useCartStore'
+import { usePlaceOrder } from '../hooks/useOrderData'
+import { toast } from 'react-toastify'
+ 
 
 export const Checkout = () => {
+    const navigate = useNavigate()
+    const {mutate} = usePlaceOrder()
     const cart = useCartStore(state=>state.cart)
+    const subTotal = useCartStore(state=>state.subTotal)
+
+    const [addressInfo, setAddressInfo] = useState({
+        state : "", 
+        city: "", 
+        street : "", 
+        building : "",
+        additionalInfo : ""
+    }) 
+
+    const handleChange = (e)=>{
+        const {name,value} = e.target
+        setAddressInfo({...addressInfo, [name]:value})
+    }
+
+    const addAddress = (e)=>{
+        e.preventDefault()
+        toast.success("Order placed")
+        setTimeout(()=>{
+        navigate("/")
+        }, 4000)
+    }
+
+    const orderDetails = {
+        items: cart, 
+        totalAmount : subTotal, 
+        _id:"6608a55cd80f217c9d5c5c9f"
+    }
+    const placeOrder = ()=>{
+    mutate(orderDetails)
+    }
+
   return (
     <div>
         
@@ -14,53 +51,74 @@ export const Checkout = () => {
         <div className='container py-12 grid grid-cols-12 sm:px-3 md:px-4 gap-4'> 
 
 
-            <div className=' lg:col-span-8 xl:col-span-8 sm:col-span-12 md:col-span-12 space-y-6'>
-                {/* <h1 className='font-bold text-xl'>Shipping Address</h1> */}
-                <div className='flex flex-col gap-3'>
+            <div className=' lg:col-span-8 xl:col-span-8 sm:col-span-12 md:col-span-12 space-y-4'>
+                
+                <div className='flex flex-col gap-6'>
 
-                <h1 className='font-bold text-lg'>Personal Information</h1>
+
+        <div className='space-y-3'>
+              <h1 className='font-bold text-xl'>Personal Information</h1>
+
                 <div className='flex sm:flex-col lg:gap-4 xl:gap-4 sm:gap-3 md:gap-3'>
-                    <div className='flex flex-col flex-1 gap-2'>
-                    <label className='text-lg text-gray-500' htmlFor="">First name</label>
-                     <input className='border p-2 focus:outline-none shadow-sm' type="text" />  
+                    <div className='flex flex-col flex-1 gap-1'>
+                    <label className='font-medium text-sm' htmlFor="">Name</label>
+                     <input placeholder='Titah' disabled className=' p-1 shadow-sm text-lg ' type="text" />  
                     </div>
-
-                        <div className='flex flex-col flex-1 gap-2'>
-                        <label className='text-lg text-gray-500 ' htmlFor="">Last name</label>
-                        <input className=' shadow-sm border p-2 focus:outline-none' type="text" />
-                        </div>
                 </div>
 
                 <div className='flex sm:flex-col lg:gap-4 xl:gap-4 sm:gap-3 md:gap-3'>
-                    <div className='flex flex-col flex-1 gap-2'>
-                    <label className='text-lg text-gray-500' htmlFor="">Email</label>
-                     <input className=' shadow-sm border p-2 focus:outline-none' type="email" />  
+                    <div className='flex flex-col flex-1 gap-1'>
+                    <label className='font-medium text-sm' htmlFor="">Email</label>
+                     <input placeholder='baudwin@gmail.com' disabled className=' shadow-sm text-lg p-1' type="email" />  
                     </div>
 
-                        <div className='flex flex-col flex-1 gap-2'>
-                        <label className='text-lg text-gray-500' htmlFor="">Phone number</label>
-                        <input className=' shadow-sm border p-2 focus:outline-none' type="number" />
+                        <div className='flex flex-col flex-1 gap-1'>
+                        <label className='font-medium text-sm' htmlFor="">Phone number</label>
+                        <input disabled placeholder='678680324' className=' shadow-sm  p-1 text-lg' type="number" />
                         </div>
-                </div>
+                </div>   
 
-                <h1 className='font-bold text-lg'>Delivery Details</h1>
+            </div>
+   
+
+            <div className='space-y-3'>
+                 <h1 className='font-bold text-xl'>Delivery Address</h1>
                 <div className='flex sm:flex-col gap-4 lg:gap-4 xl:gap-4 sm:gap-3 md:gap-3'>
-                    <div className='flex flex-col flex-1 gap-2'>
-                    <label className='text-lg text-gray-500 ' htmlFor="">Location</label>
-                     <input className='border p-2 focus:outline-none' type="text" />  
+                    <div className='flex flex-col flex-1 gap-1'>
+                    <label className='font-medium text-sm' htmlFor="">Region/State</label>
+                     <input onChange = {handleChange} className='border p-2 focus:outline-none' name='state' type="text" />  
                     </div>
 
-                        <div className='flex flex-col flex-1 gap-2'>
-                        <label className='text-lg text-gray-500' htmlFor="">Building Name</label>
-                        <input className=' shadow-sm border p-2 focus:outline-none' type="text" />
+                        <div className='flex flex-col flex-1 gap-1'>
+                        <label className='font-medium text-sm' htmlFor="">City</label>
+                        <input onChange = {handleChange} name='city' className=' shadow-sm border p-2 focus:outline-none' type="text" />
                         </div>
                 </div>
 
-                <div className='flex flex-col gap-3'>
-                        <label className='text-lg text-gray-500' htmlFor="">Additional information (optional)</label>
-                        <textarea className='p-2 lg:w-1/2 xl:w-1/2  shadow-sm border focus:outline-none' name="" id="" cols="5" rows="3"></textarea> 
+                <div className='flex sm:flex-col gap-4 lg:gap-4 xl:gap-4 sm:gap-3 md:gap-3'>
+                    <div className='flex flex-col flex-1 gap-1'>
+                    <label className='font-medium text-sm' htmlFor="">Street Name</label>
+                     <input name='street' onChange = {handleChange} className='border p-2 focus:outline-none' type="text" />  
                     </div>
-     
+
+                        <div className='flex flex-col flex-1 gap-1'>
+                        <label className='font-medium text-sm' htmlFor="">Building Name/<span className='text-sm'>Number</span></label>
+                        <input name='building' onChange = {handleChange} className=' shadow-sm border p-2 focus:outline-none' type="text" />
+                        </div>
+                </div>
+
+                <div className='flex flex-col gap-1'>
+                        <label className='font-medium text-sm' htmlFor="">Additional Info (optional)</label>
+                        <textarea onChange = {handleChange} className='p-2 lg:w-1/2 xl:w-1/2  shadow-sm border focus:outline-none' name="additionalInfo" id="" cols="5" rows="3"></textarea> 
+                    </div>
+
+                </div>
+            
+                    
+                </div>
+
+                <div>
+                    <h1 className='font-bold text-xl'>Payment</h1>
                 </div>
 
                 <div className='grid lg:grid-cols-2 xl:grid-cols-2 lg:gap-5 xl:gap-5 sm:gap-3 md:gap-3 '>
@@ -76,8 +134,7 @@ export const Checkout = () => {
                         </span> 
                         </Link>
                        
-                    {/* <button className=' border py-3 text-white bg-teal-500 shadow-sm'>Proceed to shipping</button> */}
-                        
+                    <button onClick={addAddress} className=' border text-center py-3 text-white bg-amber-500 shadow-sm'>Proceed to shipping</button> 
                 </div>
 
             </div>
@@ -87,43 +144,50 @@ export const Checkout = () => {
 
 {/* SECOND CONTAINER  */}
 
-            <div className='shadow-sm lg:col-span-4 xl:col-span-4 sm:col-span-12 md:col-span-12  border rounded-sm text-sm px-3 py-5 space-y-4 h-fit'>
-              {cart.map(item=>{
-                return <>
-                <div key={item.id} className='flex gap-2'>
-                <img className='w-16 h-16 object-cover' src={`/images/${item.img}.jpg`} alt="img" />
+            <div className='shadow lg:col-span-4 xl:col-span-4 sm:col-span-12 md:col-span-12  border rounded-sm text-sm px-3 py-5 h-fit'>
+
+                <div className='space-y-2'>
+                {cart.map(item=>{
+                return<div key={item._id} className='flex gap-2 justify-between'>
+                <img className='w-14 h-14 object-cover' src={item.img.url} alt="img" />
                 <div className='flex flex-col'>
-                    <span className='font-medium'>{item.name}</span>
-                    <span className='text-sm text-gray-500' >{item.price}</span>
+                    <span className='font-medium'>{item.itemName}</span>
+                    <span className='text-sm text-right text-gray-500' >{item.price} XAF</span>
                     
                 </div>   
             </div>
-            <hr/>
-            </>
-              })}  
+        
+              })}     
+                </div>
+                <hr />
+{/* Div with total amount  */}
 
-
+                <div className='space-y-4 py-3'>
 
                 <div className='flex justify-between items-center'>
-                <h3 className=' font-mono'>Sub-total</h3>
-                <span className=' text-sm text-gray-500'>300 frs</span>
+                <h3 className=' text-[15px] text-slate-900'>Items Sub-total</h3>
+                <span className=' text-sm text-gray-900'>{subTotal} XAF</span>
                 </div>
                 <div className='flex justify-between items-center'>
-                <h3 className='font-mono'>Shipping</h3>
-                <span className='text-sm text-gray-500'>100 frs</span>
+                <h3 className='font-thin'>Delivery Fee</h3>
+                <span className='text-sm text-gray-600'>500 XAF</span>
                 </div>
-                <div className='flex justify-between items-center'>
-                <h3 className='font-mono'>Discount</h3>
-                <span className='text-sm text-gray-500'>500 frs</span>
-                </div>
+                {/* <div className='flex justify-between items-center'>
+                <h3 className=''>Discount</h3>
+                <span className='text-sm text-gray-600'>500 frs</span>
+                </div> */}
                 <hr/>
 
                 <div className='flex justify-between items-center '>
                 <h3 className='font-medium text-lg'>Total </h3>
-                <span className='font-medium text-lg'>300 frs</span>
+                <span className='font-medium text-lg text-blue-500'>{subTotal + 500} XAF</span>
                 </div>
 
-                    <button className='bg-amber-500 w-full py-3 text-white rounded flex justify-center items-center gap-1'>
+                </div>
+
+
+{/* PLACE ORDER BUTTON  */}
+                    <button onClick={placeOrder} className='bg-amber-500 w-full py-3 text-white rounded flex justify-center items-center gap-1'>
                         
                        <span>Place Order</span> 
                        <span> 

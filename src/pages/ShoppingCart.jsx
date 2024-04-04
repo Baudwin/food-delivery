@@ -4,19 +4,17 @@ import { Link, NavLink } from 'react-router-dom'
 
 
 export default function ShoppingCart() {
+
   const cartItems = useCartStore(state=>state.cart)
   const removeFromCart = useCartStore(state=>state.removeFromCart)
   const increase = useCartStore(state=>state.increaseItemQuantity)
   const decrease = useCartStore(state=>state.decreaseItemQuantity)
-  const clear = useCartStore(state=>state.clearCart)
-  const subTotal = useCartStore(state=>state.subTotal)
+
   const setCartTotal = useCartStore(state=>state.setTotal)
+  const subTotal = useCartStore(state=>state.subTotal)
 
   const [qty, setQty] = useState()
 
-  useEffect(()=>{
-    setCartTotal()
-  }, [cartItems,qty])
 
   const removeItem = (item)=>{
     removeFromCart(item)
@@ -26,11 +24,13 @@ export default function ShoppingCart() {
   const increaseQty = (item)=>{
     increase(item)
     setQty(item.quantity)
+    setCartTotal()
   }
   
   const decreaseQty = (item)=>{
     decrease(item)
     setQty(item.quantity)
+    setCartTotal()
   }
 
 
@@ -82,10 +82,10 @@ export default function ShoppingCart() {
            
             <td className='flex flex-col py-4 px-2.5'>
               
-                <img loading='lazy' decoding='async' fetchpriority='high' className='w-20 h-20 object-cover' src={`http://localhost:3005/${item?.img}`} alt="img" />
+                <img loading='lazy' decoding='async' fetchpriority='high' className='w-20 h-20 object-cover' src={item?.img.url} alt="img" />
                 <div className='flex flex-col'>
                 <span className=' text-md font-semibold'>{item.itemName}</span>
-                <span className='text-gray-600 text-sm font-medium '>{item.price} CFA</span>
+                <span className='text-gray-600 text-sm font-medium '>{item.price} XAF</span>
                 </div>
 
             </td>
@@ -99,7 +99,7 @@ export default function ShoppingCart() {
             </td>
 
      <td className='px-3'>
-        <span className='text-black font-medium'>{item.price * item.quantity} </span>
+        <span className='text-black font-medium'>{item.price * item.quantity}</span>
      </td>
 
       <td className='px-6'>
@@ -163,16 +163,16 @@ export default function ShoppingCart() {
   <div className='p-6'>
   <div className='flex justify-between items-center'>
     <h3 className=' font-bold'>Cart Subtotal</h3>
-    <span className='font-semibold '>{subTotal} CAF</span>
+    <span className='font-semibold '>{subTotal} XAF</span>
   </div>
   <div className='flex justify-between items-center'>
     <h3 className='text-gray-700 text-sm'>Shipping Charge</h3>
-    <span className='font-thin text-sm'>{500} CAF</span>
+    <span className='font-thin text-sm'>{500} XAF</span>
   </div>  
   </div>
 <div className='flex justify-between items-center border-t-2 px-6 py-3'>
   <h3 className='font-bold'>Total Amount</h3>
-  <span className='font-semibold'>{subTotal + 500} CAF</span>
+  <span className='font-semibold'>{subTotal + 500} XAF</span>
 </div>
 
  </div>

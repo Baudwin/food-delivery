@@ -11,14 +11,14 @@ export const AdminDashboardLayout = () => {
 
 
     
-    <div className='pt-5 pb-16 lg:px-12 xl:px-12 md:px-10 sm:px-5'>
+    <div className='pt-5 pb-16 lg:px-20 xl:px-20 md:px-10 sm:px-5'>
 
     <div className=' flex justify-start py-2'>
         <h1 className='font-medium text-lg'><span className=''>Hello,</span> Admin <span className='text-blue-500 uppercase'>Baudwin</span> </h1>
     </div>
 
         <div className=' grid grid-cols-12 gap-3 '>
-        <nav className='col-span-3  shadow border h-fit sm:hidden md:hidden'>
+        <nav className='col-span-3 shadow border h-fit sm:hidden md:hidden'>
             {/* <h1 className='text-white font-bold text-2xl text-center p-3 bg-slate-900'>Menu</h1> */}
           <Sidebar/>    
         </nav>
