@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export default function Footer() {
-  return (   <footer className='bg-amber-100  space-y-7'>
+  return (   <footer className='bg-amber-50  space-y-7'>
 
 <div className='container '>
    <div className='flex sm:flex-col sm:gap-4 sm:items-start justify-between items-center py-10 sm:py-5'>
@@ -41,8 +41,8 @@ export default function Footer() {
 </div>
 
 
-<div className='bg-amber-200 text-center py-3'>
-  <h1>ALL RIGHTS RESERVED baudwin12@gmail.com</h1>
+<div className='bg-amber-100 text-center py-3'>
+  <h1>copyright baudwin12@gmail.com | All Rights Reserved</h1>
 
 </div>
 

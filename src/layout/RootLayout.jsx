@@ -5,7 +5,7 @@ import Footer from '../components/Footer'
 
 export default function RootLayout() {
   return (
-    <div className='bg-amber-50'>
+    <div className=''>
         <Navbar/>
         <Outlet/>
 

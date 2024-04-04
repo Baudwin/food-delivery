@@ -21,7 +21,7 @@ addToCart(item)
 }
 
   return (
-   <div className="bg-amber-50">
+   <div className="">
   
 <div className="py-14 bg-[url('/images/img-2.jpg')]  bg-cover  flex justify-center items-center">
 <h1 className=" text-4xl font-bold text-white">Our Menu</h1>
@@ -32,7 +32,7 @@ addToCart(item)
 {/* Div with all products  */}
 <div className="products pb-14 container sm:px-3 md:px-10 ">
 
-<div className="pb-9 sticky top-0 bg-amber-50">
+<div className="pb-9 bg-white">
 
 <div className=" category flex justify-center items-center pt-6 border-b">
   <button onClick={()=>{setCurrentCategory("food")}} className={` flex-1 flex flex-col justify-center items-center font-medium ${currentCategory==="food"?"active":null}`}> 
