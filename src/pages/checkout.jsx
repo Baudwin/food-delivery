@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useCartStore } from '../store/useCartStore'
 import { usePlaceOrder } from '../hooks/useOrderData'
 import { toast } from 'react-toastify'
+import { FaHouseUser, FaMoneyBill, FaRegUser } from 'react-icons/fa'
  
 
 export const Checkout = () => {
@@ -57,7 +58,11 @@ export const Checkout = () => {
 
 
         <div className='space-y-3'>
-              <h1 className='font-bold text-xl'>Personal Information</h1>
+              
+              <div className='flex items-center gap-2'>
+                <FaRegUser/>
+                <h1 className='font-bold text-lg'>Personal Information:</h1>
+              </div>
 
                 <div className='flex sm:flex-col lg:gap-4 xl:gap-4 sm:gap-3 md:gap-3'>
                     <div className='flex flex-col flex-1 gap-1'>
@@ -82,7 +87,12 @@ export const Checkout = () => {
    
 
             <div className='space-y-3'>
-                 <h1 className='font-bold text-xl'>Delivery Address</h1>
+                <div className='flex items-center gap-2'>
+
+                     <FaHouseUser className='w-5 h-6'/>
+                   <h1 className='font-bold text-lg'>Delivery Address: </h1>
+                </div>
+                 
                 <div className='flex sm:flex-col gap-4 lg:gap-4 xl:gap-4 sm:gap-3 md:gap-3'>
                     <div className='flex flex-col flex-1 gap-1'>
                     <label className='font-medium text-sm' htmlFor="">Region/State</label>
@@ -117,8 +127,12 @@ export const Checkout = () => {
                     
                 </div>
 
+
                 <div className='space-y-2'>
-                    <h1 className='font-bold text-xl'>Payment</h1>
+                    <div className='flex items-center gap-2'>
+                    <FaMoneyBill/>
+                    <h1 className='font-bold text-lg'>Payment:</h1>
+                </div>
                     <div className='flex items-center gap-2'>
                         <input className='h-4 w-4' type="checkbox" name="" id="" />
                         <span className='text-sm text-gray-700 font-medium'>Payment on Delivery</span>
