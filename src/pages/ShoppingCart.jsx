@@ -45,7 +45,7 @@ export default function ShoppingCart() {
       // if 
 
       cartItems.length === 0 ?
-      <div className= ' flex flex-col justify-center items-center gap-y-5'>
+      <div className= ' flex flex-col justify-center items-center gap-y-5 bg-white pb-10'>
           <img className=' w-[300px]' src="/images/cart1.jpg" alt="" />
        <h1 className='text-3xl font-bold text-amber-700'>
      Your cart is empty

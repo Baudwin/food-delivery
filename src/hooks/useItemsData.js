@@ -7,7 +7,7 @@ export const useItemsData  = ()=>{
     return useQuery({
         queryKey:['items'],
         queryFn : ()=>{
-            return axios.get('http://localhost:3005/get-items')
+            return axios.get('http://localhost:3005/get-items' || "https://food-delivery-app-backend-xi.vercel.app/get-items")
         },
     }
     )
@@ -23,7 +23,7 @@ export const useAddItem = ()=>{
     return useMutation({
         mutationKey : ['addItem'], 
         mutationFn : (itemData)=>{
-         return axios.post('http://localhost:3005/add-item', itemData)
+         return axios.post('http://localhost:3005/add-item' || "https://food-delivery-app-backend-xi.vercel.app/", itemData)
         },
         onError,
          onSuccess : (data)=>{

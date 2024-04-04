@@ -51,7 +51,7 @@ export const Checkout = () => {
         <div className='container py-12 grid grid-cols-12 sm:px-3 md:px-4 gap-4'> 
 
 
-            <div className=' lg:col-span-8 xl:col-span-8 sm:col-span-12 md:col-span-12 space-y-4'>
+            <div className=' lg:col-span-8 xl:col-span-8 sm:col-span-12 md:col-span-12 space-y-6'>
                 
                 <div className='flex flex-col gap-6'>
 
@@ -117,8 +117,22 @@ export const Checkout = () => {
                     
                 </div>
 
-                <div>
+                <div className='space-y-2'>
                     <h1 className='font-bold text-xl'>Payment</h1>
+                    <div className='flex items-center gap-2'>
+                        <input className='h-4 w-4' type="checkbox" name="" id="" />
+                        <span className='text-sm text-gray-700 font-medium'>Payment on Delivery</span>
+                    </div>
+
+                    <div className='flex items-center gap-2'>
+                        <input className='h-4 w-4' type="checkbox" name="" id="" />
+                        <span className='text-sm text-gray-700 font-medium line-through'>MTN Mobile Money</span>
+                    </div>
+
+                    <div className='flex items-center gap-2'>
+                        <input className='h-4 w-4' type="checkbox" name="" id="" />
+                        <span className='text-sm text-gray-700 font-medium line-through'>Orange Mobile Money</span>
+                    </div>
                 </div>
 
                 <div className='grid lg:grid-cols-2 xl:grid-cols-2 lg:gap-5 xl:gap-5 sm:gap-3 md:gap-3 '>
