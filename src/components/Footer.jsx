@@ -8,7 +8,7 @@ export default function Footer() {
    <div className='flex sm:flex-col sm:gap-4 sm:items-start justify-between items-center py-10 sm:py-5'>
     <h1 className='font-bold text-2xl'>Subscribe to Newsletter</h1>
     <div className='flex gap-2 shadow rounded-lg p-3'>
-      <input className='bg-amber-100 focus:outline-none' placeholder='Enter your email address' type="text" name="" id="" />
+      <input className='bg-amber-50 focus:outline-none' placeholder='Enter your email address' type="text" name="" id="" />
       <button className='bg-red-600 text-white rounded px-3 py-1'>Subscribe</button>
     </div>
    </div>

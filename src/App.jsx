@@ -30,6 +30,9 @@ import { Error404 } from './pages/error404'
 import { Profile } from './pages/profile'
 import { useEffect, useState } from 'react'
 import { ScrollToTop } from './components/ScrollToTop.jsx'
+import { Shipping } from './pages/shipping.jsx'
+import { Address } from './pages/address.jsx'
+import { Payment } from './pages/payment.jsx'
 
 
 
@@ -65,7 +68,12 @@ setCartTotal()
         <Route index element={<Home/>}/>
         <Route path='shopping-cart' element={<ShoppingCart/>}></Route>
         <Route path='menu' element={  <Menu/>}></Route>
-        <Route path='checkout' element={auth ?  <Checkout/> : <Navigate to={"/login"}/>}></Route>
+
+        <Route path='checkout' element={auth ?  <Checkout/> : <Navigate to={"/login"}/>}>
+        <Route index element={ <Address/>}></Route>
+        <Route path='shipping' element={ <Shipping/>}></Route>
+        <Route path='payment' element={ <Payment/>}></Route>
+        </Route>
 
      <Route path='/admin-dashboard' element={<AdminDashboardLayout/>}>
      <Route index element={<Items/>}></Route>
