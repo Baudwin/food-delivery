@@ -40,7 +40,7 @@ import { UserDetails } from './pages/profile/userDetails.jsx'
 
 
 function App() {
-
+const user = useAuthStore(state=>state.user)
 const cart = useCartStore(state=>state.cart)
 const setCartTotal = useCartStore(state=>state.setTotal)
 
@@ -86,7 +86,7 @@ setCartTotal()
       <Route path='login' element={<Login/>}/>
       <Route path='signup' element={<Signup/>}/>
 
-      <Route path='profile' element={<Profile/>}>
+      <Route path='profile' element={ user ?  <Profile/> : <Navigate to={'/login'}/>}>
          <Route index element={<UserDetails/>}/>
           <Route path='details' element={<UserDetails/>}/>
           <Route path='address' element={<UserAddress/>}/>

@@ -10,7 +10,7 @@ export const useUserData = ()=>{
 
     return useMutation ({
         mutationFn : (userInfo)=>{
-            return axios.post("https://food-delivery-app-backend-xi.vercel.app/signup", userInfo)
+            return axios.post("http://localhost:3005/signup", userInfo)
         },
         onError : (error)=>{
             toast.warning(error.response.data,{
@@ -32,7 +32,7 @@ export const useLoginUser = ()=>{
     const login  = useAuthStore(state=>state.login)
     return useMutation({
         mutationFn : (userInfo)=>{
-            return axios.post("https://food-delivery-app-backend-xi.vercel.app/user-login", userInfo)
+            return axios.post("http://localhost:3005/user-login", userInfo)
         },
         onError : (error)=>{
             toast.warning(error.response.data,{

@@ -8,7 +8,7 @@ export const UserOrders = () => {
     const {data, isLoading, isError, error} = usegetOrders()
 
   return (
-    <div className='space-y-5'>
+    <div className='space-y-5 sm:px-5 md:px-8'>
        <h1 className='font-bold text-2xl'> My Orders</h1>
 
         <div className='grid lg:grid-cols-2 sm:grid-cols-1 gap-4'>

@@ -8,7 +8,7 @@ export const usePlaceOrder = ()=>{
     
     return useMutation({
         mutationFn:(orderDetails)=>{
-            return axios.post('https://food-delivery-app-backend-xi.vercel.app/place-order', orderDetails, 
+            return axios.post('http://localhost:3005/place-order', orderDetails, 
         {
         headers:{
             Authorization: `Bearer ${user.token}`
