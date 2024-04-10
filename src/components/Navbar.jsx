@@ -11,10 +11,12 @@ const cart = useCartStore(state=>state.cart)
 const [show, setShow] = useState(false)
 
 const display = ()=>{
-  show ? setShow(false) : setShow(true)
+   setShow(!show)
 }
 
-
+const toggleNav = ()=>{
+setShow(!show)
+}
 
   return (
     <div className=' sticky top-0'>
@@ -58,11 +60,11 @@ const display = ()=>{
 
             </nav>
 
-            <div className={`${show ?'flex' : 'hidden'} lg:hidden flex-col justify-center absolute bg-white w-full `}>
-             <NavLink className={`py-4 text-sm px-5 hover:bg-white hover:text-black`}>Home </NavLink>
-             <NavLink to={'menu'}  className={`py-4 text-sm px-5 hover:bg-white hover:text-black`}> Menu</NavLink>
-             <NavLink  className={`py-4 text-sm px-5 hover:bg-white hover:text-black`}> About </NavLink>
-             <NavLink  className={`py-4 text-sm px-5 hover:bg-white hover:text-black`}>Contact </NavLink>
+            <div className={`${show ?'flex' : 'hidden'} lg:hidden flex-col justify-center items-center absolute bg-gray-900 bg-opacity-100 w-full `}>
+             <NavLink onClick={toggleNav} to={'/'} className={`py-4 w-full text-center text-sm px-5 hover:bg-white hover:text-black`}>Home </NavLink>
+             <NavLink onClick={toggleNav} to={'menu'}  className={`py-4 w-full text-center text-sm px-5 hover:bg-white hover:text-black`}> Menu</NavLink>
+             <NavLink onClick={toggleNav} to={'about'}  className={`py-4 w-full text-center text-sm px-5 hover:bg-white hover:text-black`}> About </NavLink>
+             <NavLink onClick={toggleNav} to={'contact'}  className={`py-4 w-full text-center text-sm px-5 hover:bg-white hover:text-black`}>Contact </NavLink>
             </div>
 
         </header>      
