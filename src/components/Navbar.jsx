@@ -21,7 +21,7 @@ setShow(!show)
   return (
     <div className=' sticky top-0'>
     
-        <header className=' bg-black  text-white '>
+        <header className=' bg-amber-50 '>
 
             <nav className='flex lg:justify-around md:justify-between sm:justify-between items-center py-4 sm:px-4 md:px-4 '>
 
@@ -51,7 +51,7 @@ setShow(!show)
            
             </div>
 
-            <button onClick={display} className={`lg:hidden sm:flex bg-gray-600 p-3 shadow ${show ? 'focus:border border-white': null}  `}>
+            <button onClick={display} className={`lg:hidden sm:flex  p-3 shadow ${show ? 'focus:border border-white': null}  `}>
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-list font-bold" viewBox="0 0 16 16">
             <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
           </svg>
@@ -60,7 +60,7 @@ setShow(!show)
 
             </nav>
 
-            <div className={`${show ?'flex' : 'hidden'} lg:hidden flex-col justify-center items-center absolute bg-gray-900 bg-opacity-100 w-full `}>
+            <div className={`${show ?'flex' : 'hidden'} lg:hidden flex-col  absolute bg-amber-50 bg-opacity-100 w-full h-screen`}>
              <NavLink onClick={toggleNav} to={'/'} className={`py-4 w-full text-center text-sm px-5 hover:bg-white hover:text-black`}>Home </NavLink>
              <NavLink onClick={toggleNav} to={'menu'}  className={`py-4 w-full text-center text-sm px-5 hover:bg-white hover:text-black`}> Menu</NavLink>
              <NavLink onClick={toggleNav} to={'about'}  className={`py-4 w-full text-center text-sm px-5 hover:bg-white hover:text-black`}> About </NavLink>
