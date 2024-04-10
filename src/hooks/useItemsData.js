@@ -7,7 +7,7 @@ export const useItemsData  = ()=>{
     return useQuery({
         queryKey:['items'],
         queryFn : ()=>{
-            return axios.get('https://food-delivery-app-backend-xi.vercel.app/get-items' )
+            return axios.get('http://localhost:3005/get-items' )
         },
     }
     )
@@ -23,7 +23,7 @@ export const useAddItem = ()=>{
     return useMutation({
         mutationKey : ['addItem'], 
         mutationFn : (itemData)=>{
-         return axios.post('https://food-delivery-app-backend-xi.vercel.app/add-item', itemData)
+         return axios.post('http://localhost:3005/add-item', itemData)
         },
         onError,
          onSuccess : (data)=>{
@@ -40,7 +40,7 @@ export const useAddItem = ()=>{
 export const useDeleteItem = ()=>{
     return useMutation({
         mutationFn:(id)=>{
-        return axios.delete(`https://food-delivery-app-backend-xi.vercel.app/delete-item/${id}`)
+        return axios.delete(`http://localhost:3005/delete-item/${id}`)
         },
         onSuccess:()=>{
             toast.warning("item deleted")

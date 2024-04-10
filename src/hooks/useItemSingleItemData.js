@@ -6,7 +6,7 @@ export const useSingleItemData = (itemID)=>{
     return useQuery({
         queryKey:['item', itemID],
         queryFn : ()=>{
-            return axios.get(`https://food-delivery-app-backend-xi.vercel.app/get-item/${itemID}`)
+            return axios.get(`http://localhost:3005/get-item/${itemID}`)
         }
     })
 }

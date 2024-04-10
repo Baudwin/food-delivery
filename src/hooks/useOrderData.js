@@ -8,7 +8,7 @@ export const usePlaceOrder = ()=>{
     
     return useMutation({
         mutationFn:(orderDetails)=>{
-            return axios.post('http://localhost:3005/place-order', orderDetails, 
+            return axios.post('https://food-delivery-app-backend-xi.vercel.app/place-order', orderDetails, 
         {
         headers:{
             Authorization: `Bearer ${user.token}`
@@ -29,7 +29,7 @@ export const usegetOrders = ()=>{
     return useQuery({
         queryKey:['orders', user._id],
         queryFn:()=>{
-            return axios.get('https://food-delivery-app-backend-xi.vercel.app/my-orders', 
+            return axios.get('http://localhost:3005/my-orders', 
         {
         headers:{
             Authorization: `Bearer ${user.token}`
@@ -45,7 +45,7 @@ export const usegetAllOrders = ()=>{
     return useQuery({
         queryKey:['allOrders'],
         queryFn:()=>{
-            return axios.get('https://food-delivery-app-backend-xi.vercel.app/get-orders')
+            return axios.get('http://localhost:3005/get-orders')
         },
 
     })

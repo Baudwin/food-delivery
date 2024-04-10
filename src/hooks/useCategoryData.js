@@ -5,7 +5,7 @@ export const useCategoryData = ()=>{
     return useQuery({
         queryKey:['categories'], 
         queryFn : ()=>{
-            return axios.get(`https://food-delivery-app-backend-xi.vercel.app/get-categories`)
+            return axios.get(`http://localhost:3005/get-categories`)
         }
     })
 }
