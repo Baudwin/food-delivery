@@ -21,25 +21,25 @@ import { AllItems } from './components/admin/AllItems'
 import { EditItem } from './components/admin/EditItem'
 
 import ShoppingCart from './pages/ShoppingCart'
-import { Checkout } from './pages/checkout'
+import { Checkout } from './pages/checkout/checkout.jsx'
 import Menu from './pages/menu'
 import Home from './pages/home'
 import { Login } from './pages/login'
 import { Signup } from './pages/signup'
 import { Error404 } from './pages/error404'
-import { Profile } from './pages/profile'
-import { useEffect, useState } from 'react'
+import { Profile } from './pages/profile/profile.jsx'
+import { useEffect } from 'react'
 import { ScrollToTop } from './components/ScrollToTop.jsx'
-import { Shipping } from './pages/shipping.jsx'
-import { Address } from './pages/address.jsx'
-import { Payment } from './pages/payment.jsx'
+import { Payment } from './pages/checkout/payment.jsx'
+import { AddAddress } from './pages/checkout/addAddress.jsx'
+import { Address } from './pages/checkout/address.jsx'
+import { UserAddress } from './pages/profile/userAddress.jsx'
+import { UserOrders } from './pages/profile/userOrders.jsx'
+import { UserDetails } from './pages/profile/userDetails.jsx'
 
 
 
 function App() {
- 
-const user = useAuthStore(state=>state.user)
-const [auth, setUth] = useState(true)
 
 const cart = useCartStore(state=>state.cart)
 const setCartTotal = useCartStore(state=>state.setTotal)
@@ -50,30 +50,25 @@ setCartTotal()
 
 
 
-
-
-
-// const navigateOut = ()=>{
-//   setTimeout(() => {
-    
-//   }, 3000);
-// }
-
   const router = createBrowserRouter (
    
     createRoutesFromElements (
       
+
       <Route path='/' element={<RootLayout/>}>
-        {/* <ScrollToTop/> */}
         <Route index element={<Home/>}/>
         <Route path='shopping-cart' element={<ShoppingCart/>}></Route>
         <Route path='menu' element={  <Menu/>}></Route>
+      
+        <Route path='checkout' element={ <Checkout/> }>
 
-        <Route path='checkout' element={auth ?  <Checkout/> : <Navigate to={"/login"}/>}>
         <Route index element={ <Address/>}></Route>
-        <Route path='shipping' element={ <Shipping/>}></Route>
-        <Route path='payment' element={ <Payment/>}></Route>
+        <Route path='payment/:addressID' element={ <Payment/>}></Route>
+        <Route path='add-address' element={ <AddAddress/>}></Route>
+
         </Route>
+       
+        
 
      <Route path='/admin-dashboard' element={<AdminDashboardLayout/>}>
      <Route index element={<Items/>}></Route>
@@ -90,7 +85,13 @@ setCartTotal()
 
       <Route path='login' element={<Login/>}/>
       <Route path='signup' element={<Signup/>}/>
-      <Route path='profile' element={<Profile/>}/>
+
+      <Route path='profile' element={<Profile/>}>
+         <Route index element={<UserDetails/>}/>
+          <Route path='details' element={<UserDetails/>}/>
+          <Route path='address' element={<UserAddress/>}/>
+          <Route path='orders' element={<UserOrders/>}/>
+      </Route>
 
 
       <Route path='/*' element={<Error404/>}/>
@@ -103,12 +104,12 @@ setCartTotal()
   return (
 
     <>
-    <ToastContainer
+    
+ <RouterProvider router={router}/>
+     <ToastContainer
     transition={Zoom}
     autoClose={3000}
     />
- <RouterProvider router={router}/>
- 
     </>
   )
 }

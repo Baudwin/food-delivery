@@ -82,7 +82,7 @@ export default function ShoppingCart() {
            
             <td className='flex flex-col py-4 px-2.5'>
               
-                <img loading='lazy' decoding='async' fetchpriority='high' className='w-20 h-20 object-cover' src={item?.img.url} alt="img" />
+                <img className='w-20 h-20 object-cover' src={item?.img.url} alt="img" />
                 <div className='flex flex-col'>
                 <span className=' text-md font-semibold'>{item.itemName}</span>
                 <span className='text-gray-600 text-sm font-medium '>{item.price} XAF</span>
@@ -119,22 +119,7 @@ export default function ShoppingCart() {
             </tbody>
 
         </table>
-        
-            {/* <div className='flex justify-between items-center p-2'>
-
-            <NavLink to={'/menu'}> <button className=' text-gray-500 flex justify-center items-center space-x-1'>
-              <span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" fill="currentColor" className="bi bi-arrow-left inline-block" viewBox="0 0 16 16">
-            <path fillRule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
-            </svg>
-             </span>
-             <span >Continue Shopping</span>
-              
-              </button>
-              </NavLink>
-
-            <button onClick={()=>{clear()}} className='bg-red-500 px-2 py-2 text-white rounded shadow-sm'>Clear Cart</button>
-            </div> */}
+      
      
         </div>
      

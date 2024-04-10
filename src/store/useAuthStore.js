@@ -1,12 +1,12 @@
 import  { create} from 'zustand'
 
-const user = localStorage.getItem('user')
+const user = JSON.parse(localStorage.getItem('user')) 
 
 export const useAuthStore = create((set)=>({
-    user : user ?  JSON.parse(user) : null, 
+    user : user ?  user : null, 
     login : (userInfo)=>{
         set({user : userInfo})
-        localStorage.setItem('user', JSON.stringify(userInfo))
+         localStorage.setItem('user', JSON.stringify(userInfo))
     },
 
     logout : ()=>{

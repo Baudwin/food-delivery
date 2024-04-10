@@ -38,9 +38,15 @@ th {
   @apply text-lg
  }
 
+
  .profile-nav a:hover{
   @apply  bg-teal-500 text-white
  }
- .profile-nav a{
-  @apply  text-xl  py-4 px-3 border
+
+ .profile-nav a.active{
+  @apply  bg-teal-500 text-white font-semibold
  }
+ .profile-nav a{
+  @apply  text-xl  py-4 flex-1 text-center
+ }
+

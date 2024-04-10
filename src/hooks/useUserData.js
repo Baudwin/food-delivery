@@ -10,7 +10,7 @@ export const useUserData = ()=>{
 
     return useMutation ({
         mutationFn : (userInfo)=>{
-            return axios.post("http://localhost:3005/signup", userInfo)
+            return axios.post("https://food-delivery-app-backend-xi.vercel.app/signup", userInfo)
         },
         onError : (error)=>{
             toast.warning(error.response.data,{
@@ -28,10 +28,11 @@ export const useUserData = ()=>{
 
 
 export const useLoginUser = ()=>{
+    const navigate = useNavigate()
     const login  = useAuthStore(state=>state.login)
     return useMutation({
         mutationFn : (userInfo)=>{
-            return axios.post("http://localhost:3005/user-login", userInfo)
+            return axios.post("https://food-delivery-app-backend-xi.vercel.app/user-login", userInfo)
         },
         onError : (error)=>{
             toast.warning(error.response.data,{
@@ -41,8 +42,12 @@ export const useLoginUser = ()=>{
         }, 
         onSuccess:(data)=>{
             login(data.data.userInfo)
-            toast.success(data.data.msg)
-            // navigate("/")
+            toast.success(data.data.msg, {
+                pauseOnFocusLoss:false,
+                hideProgressBar:true
+                
+            })
+            navigate("/")
         }
     })
 }

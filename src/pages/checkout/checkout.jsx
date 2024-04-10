@@ -1,45 +1,54 @@
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 import { Outlet, useNavigate, useLocation } from 'react-router-dom'
-import { useCartStore } from '../store/useCartStore'
+import { useCartStore } from '../../store/useCartStore'
+import { useAuthStore } from '../../store/useAuthStore'
+import {toast} from 'react-toastify'
  
 
 export const Checkout = () => {
+    const user = useAuthStore(state=>state.user)
+    const navigate = useNavigate()
+
+    useEffect(()=>{
+        if (!user) {
+    toast.error("You must sign in to continue!")
+        setTimeout(() => {
+           navigate("/login")  
+        }, 4000);
+        }
+    }, [user])
+
     const location = useLocation().pathname
+
     const cart = useCartStore(state=>state.cart)
     const subTotal = useCartStore(state=>state.subTotal)
-
-    const orderDetails = {
-        items: cart, 
-        totalAmount : subTotal, 
-        _id:"6608a55cd80f217c9d5c5c9f"
-    }
-    const placeOrder = ()=>{
-    mutate(orderDetails)
-    }
+  
 
   return (
     <div>
+ 
+
+
+
         
         <div style={{backgroundImage:""}} className='p-14 bg-[url("/images/img-2.jpg")]  bg-cover flex justify-center items-center '>
             <h1 className='text-4xl font-bold  text-center text-white'> Checkout</h1>
         </div>
+       
 
         <div className='container py-12 grid grid-cols-12 sm:px-3 md:px-4 gap-4'> 
-
-         <div className=' lg:col-span-8 xl:col-span-8 sm:col-span-12 md:col-span-12 space-y-6'>
-                
-            <Outlet/>
-
-         </div>
-
-
-
+        <div className=' lg:col-span-8 xl:col-span-8 sm:col-span-12 md:col-span-12 space-y-4'>
+           <Outlet 
+           subTotal={100}
+           /> 
+        </div>
+        
 
 {/* SECOND CONTAINER  */}
 
-            <div className='shadow lg:col-span-4 xl:col-span-4 sm:col-span-12 md:col-span-12  border rounded-sm text-sm px-3 py-5 h-fit'>
-
-                <div className='space-y-2'>
+            <div className='shadow space-y-4 py-3 lg:col-span-4 xl:col-span-4 sm:col-span-12 md:col-span-12  border rounded-sm text-sm px-3  h-fit'>
+                <h1 className='text-xl font-bold text-center'>Order Summary </h1>
+                <div className='space-y-1'>
                 {cart.map(item=>{
                 return<div key={item._id} className='flex gap-2 justify-between'>
                 <img className='w-14 h-14 object-cover' src={item.img.url} alt="img" />
@@ -53,9 +62,10 @@ export const Checkout = () => {
               })}     
                 </div>
                 <hr />
+
 {/* Div with total amount  */}
 
-                <div className='space-y-4 py-3'>
+                <div className='space-y-3 py-'>
 
                 <div className='flex justify-between items-center'>
                 <h3 className=' text-[15px] text-slate-900'>Items Sub-total</h3>
@@ -65,10 +75,6 @@ export const Checkout = () => {
                 <h3 className='font-thin'>Delivery Fee</h3>
                 <span className='text-sm text-gray-600'>500 XAF</span>
                 </div>
-                {/* <div className='flex justify-between items-center'>
-                <h3 className=''>Discount</h3>
-                <span className='text-sm text-gray-600'>500 frs</span>
-                </div> */}
                 <hr/>
 
                 <div className='flex justify-between items-center '>
@@ -76,24 +82,14 @@ export const Checkout = () => {
                 <span className='font-medium text-lg text-blue-500'>{subTotal + 500} XAF</span>
                 </div>
 
+                <div className='flex justify-between items-center '>
+                <h3 className='text-md'>Delivery by</h3>
+                <span className='font-medium text-lg text-blue-500'></span>
+                </div>
+
                 </div>
 
 
-{/* PLACE ORDER BUTTON  */}
-{
-    location ==="/checkout/payment" ? 
-
-                    <button  onClick={placeOrder} className='bg-amber-500 w-full py-3 text-white rounded flex justify-center items-center gap-1'>
-                        
-                       <span>Place Order</span> 
-                       <span> 
-                       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="16" fill="currentColor" className="bi bi-arrow-right-short mt-0.5" viewBox="0 0 16 16">
-                        <path fillRule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"/>
-                        </svg>
-                       </span>
-                        </button>
-: null
-}
             </div>
 
         </div>

@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { FaHouseUser, FaMoneyBill, FaRegUser } from 'react-icons/fa'
 import { Link, useNavigate} from 'react-router-dom'
-import { usePlaceOrder } from '../hooks/useOrderData'
+import { addAddress } from '../../hooks/useAddressData'
 import {toast} from 'react-toastify'
 
-export const Address = () => {
-    // const {mutate} = usePlaceOrder()
+export const AddAddress = () => {
+
+    const {mutate} = addAddress()
     const navigate = useNavigate()
     const [addressInfo, setAddressInfo] = useState({
         state : "", 
@@ -22,22 +23,20 @@ export const Address = () => {
     }
 
     
-    const addAddress = (e)=>{
+    const addNewAddress = (e)=>{
         e.preventDefault()
-        toast.success("Address added succcessfully")
-        setTimeout(()=>{
-        navigate("shipping")
-        }, 4000)
+        mutate(addressInfo)
+        console.log(addressInfo);
     }
 
 
 
   return (
-    <div className='space-y-3'>
    
-<div className='flex flex-col gap-6'>
+<div className=' sm:px-5 md:px-8 container flex flex-col gap-6'>
 
-<div className='space-y-3'>
+<h1 className='text-2xl font-bold'>Add New Address</h1>
+{/* <div className='space-y-3'>
       <div className='flex items-center gap-2'>
         <FaRegUser/>
         <h1 className='font-bold text-lg'>Personal Information:</h1>
@@ -62,16 +61,12 @@ export const Address = () => {
                 </div>
         </div>   
 
-    </div>
+    </div> */}
 
 
-    <div className='space-y-3'>
-        <div className='flex items-center gap-2'>
-
-             <FaHouseUser className='w-5 h-6'/>
-           <h1 className='font-bold text-lg'>Delivery Address: </h1>
-        </div>
-         
+<form className='space-y-4' onSubmit={addNewAddress} action="">
+ <div className='space-y-3'>
+   
         <div className='flex sm:flex-col gap-4 lg:gap-4 xl:gap-4 sm:gap-3 md:gap-3'>
             <div className='flex flex-col flex-1 gap-1'>
             <label className='font-medium text-sm' htmlFor="">Region/State</label>
@@ -102,25 +97,16 @@ export const Address = () => {
             </div>
 
         </div>
+        <div className='space-x-3'>
+          <button className='bg-green-500 text-white p-3 rounded shadow-lg hover:bg-green-600'> Add Address </button>   
+          <button onClick={()=>navigate("/checkout")} className='bg-red-500 text-white p-3 rounded shadow-lg hover:bg-red-600'> Cancel </button>
+        </div>
+       
+
+</form>
+   
         
         </div>
 
-        <div className='grid lg:grid-cols-2 xl:grid-cols-2 lg:gap-5 xl:gap-5 sm:gap-3 md:gap-3 '>
-            
-            <Link  to={'/shopping-cart'} className='text-slate-600 py-3  bg-white border shadow-sm flex justify-center items-center gap-1'>
-                <span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-left-short mt-0.5" viewBox="0 0 16 16">
-                <path fillRule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5"/>
-                </svg>
-                </span>
-                <span>
-              Back to Cart
-                </span> 
-                </Link>
-               
-            <button onClick={addAddress} className=' border text-center py-3 text-white bg-amber-500 shadow-sm'>Proceed to delivery</button> 
-
-        </div>
-    </div>
   )
 }

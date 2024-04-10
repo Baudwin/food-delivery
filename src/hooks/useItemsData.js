@@ -1,13 +1,13 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import {toast} from 'react-toastify'
-import { useNavigate } from "react-router";
+import { useNavigate } from 'react-router-dom';
 
 export const useItemsData  = ()=>{
     return useQuery({
         queryKey:['items'],
         queryFn : ()=>{
-            return axios.get('https://food-delivery-app-backend-xi.vercel.app/get-items' ||'http://localhost:3005/get-items' )
+            return axios.get('https://food-delivery-app-backend-xi.vercel.app/get-items' )
         },
     }
     )
@@ -23,7 +23,7 @@ export const useAddItem = ()=>{
     return useMutation({
         mutationKey : ['addItem'], 
         mutationFn : (itemData)=>{
-         return axios.post('http://localhost:3005/add-item' || "https://food-delivery-app-backend-xi.vercel.app", itemData)
+         return axios.post('https://food-delivery-app-backend-xi.vercel.app/add-item', itemData)
         },
         onError,
          onSuccess : (data)=>{
@@ -40,7 +40,7 @@ export const useAddItem = ()=>{
 export const useDeleteItem = ()=>{
     return useMutation({
         mutationFn:(id)=>{
-        return axios.delete(`http://localhost:3005/delete-item/${id}`)
+        return axios.delete(`https://food-delivery-app-backend-xi.vercel.app/delete-item/${id}`)
         },
         onSuccess:()=>{
             toast.warning("item deleted")
