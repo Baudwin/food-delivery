@@ -26,7 +26,6 @@ export const AddAddress = () => {
     const addNewAddress = (e)=>{
         e.preventDefault()
         mutate(addressInfo)
-        console.log(addressInfo);
     }
 
 

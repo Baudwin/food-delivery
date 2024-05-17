@@ -10,7 +10,7 @@ export const Sidebar = () => {
       
     </div>
         <NavLink to={'items'} className=' p-3  hover:text-white font-medium'>  Items</NavLink>
-        <NavLink to={'categories'} className=' p-3  hover:text-white font-medium'>Categories</NavLink>
+        {/* <NavLink to={'categories'} className=' p-3  hover:text-white font-medium'>Categories</NavLink> */}
         <NavLink to={'menu'} className=' p-3  hover:text-white font-medium'> Menu</NavLink>
         <NavLink to={'orders'} className=' p-3  hover:text-white font-medium'> Orders</NavLink>
         {/* <NavLink to={'coupon'} className='p-3  hover:text-white font-medium'> Coupon</NavLink> */}

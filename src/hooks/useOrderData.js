@@ -4,14 +4,14 @@ import { useAuthStore } from '../store/useAuthStore'
 
 export const usePlaceOrder = ()=>{
     const queryClient = useQueryClient()
-    const user = useAuthStore((state=>state.user))
+    const token = useAuthStore((state=>state.token))
     
     return useMutation({
         mutationFn:(orderDetails)=>{
             return axios.post('https://food-delivery-app-backend-xi.vercel.app/place-order', orderDetails, 
         {
         headers:{
-            Authorization: `Bearer ${user.token}`
+            Authorization: `Bearer ${token}`
         }
         })
         },
@@ -25,14 +25,14 @@ export const usePlaceOrder = ()=>{
 
 export const usegetOrders = ()=>{
     const user = useAuthStore((state=>state.user))
-    
+    const token = useAuthStore((state=>state.token))
     return useQuery({
         queryKey:['orders', user._id],
         queryFn:()=>{
             return axios.get('https://food-delivery-app-backend-xi.vercel.app/my-orders', 
         {
         headers:{
-            Authorization: `Bearer ${user.token}`
+            Authorization: `Bearer ${token}`
         }
         })
         },

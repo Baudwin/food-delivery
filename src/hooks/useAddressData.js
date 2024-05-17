@@ -8,13 +8,14 @@ export const addAddress = ()=>{
     const navigate = useNavigate()
     const queryClient = useQueryClient()
 
-    const user = useAuthStore((state=>state.user))
+    const token = useAuthStore((state=>state.token))
+    
     return useMutation({
         mutationFn:(addressDetails)=>{
             return axios.post('https://food-delivery-app-backend-xi.vercel.app/add-address', addressDetails, 
         {
         headers:{
-            Authorization: `Bearer ${user.token}`
+            Authorization: `Bearer ${token}`
         }
         }
     )
@@ -45,14 +46,14 @@ export const addAddress = ()=>{
 
 
 export const getAddress = ()=>{
-    const user = useAuthStore((state=>state.user))
+    const token = useAuthStore((state=>state.token))
     return useQuery({
         queryKey:['addresses'],
         queryFn:()=>{
         return   axios.get('https://food-delivery-app-backend-xi.vercel.app/get-address', 
         {
             headers:{
-                Authorization: `Bearer ${user.token}`
+                Authorization: `Bearer ${token}`
             }
             })
         }

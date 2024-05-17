@@ -4,7 +4,7 @@ import {useParams , useNavigate} from 'react-router-dom'
 import { useCartStore } from '../../store/useCartStore'
 import { usePlaceOrder } from '../../hooks/useOrderData'
 import {toast} from 'react-toastify'
-import {PulseLoader, PropagateLoader, ClipLoader} from 'react-spinners'
+import {ScaleLoader, ClipLoader} from 'react-spinners'
 import { FaCheck, FaCheckCircle } from 'react-icons/fa'
 
 
@@ -53,11 +53,6 @@ clearCart()
 
 }
 
-if (isSuccess) {
-  setTimeout(() => {
-    navigate('/profile/orders')
-  }, 1500);
-}
 
   return (
     <>
@@ -66,11 +61,12 @@ if (isSuccess) {
 
   showLoading? 
 
-  <div className='fixed inset-0 flex justify-center items-center bg-gray-900 bg-opacity-90 z-50'>
+  <div className='fixed inset-0 flex justify-center items-center bg-gray-950 bg-opacity-90 z-50'>
             
-            <ClipLoader
+            <ScaleLoader
             className='loader'
             size={60}
+            color='white'
             />
         </div>
 
@@ -81,8 +77,8 @@ null
 {
   isSuccess ? 
 
-<div className='fixed inset-0 flex justify-center items-center bg-gray-900 bg-opacity-90 z-50'>
-      <div className='space-y-3 bg-white py-9 px-16 shadow-lg rounded flex flex-col items-center justify-center'>
+<div className='fixed inset-0 flex justify-center items-center bg-gray-950 bg-opacity-92 z-50'>
+      <div className='space-y-3 bg-white h-fit py-7 px-16 shadow-lg rounded flex flex-col items-center justify-center'>
         <span className='bg-green-500 rounded-full p-5'>
         <FaCheck   style={{
       color: "#ffffff",
@@ -92,8 +88,11 @@ null
             Order Successful
           </h1>
           <p className='text-gray-500 text-sm'>Thank you so much for your order</p>
+          <button onClick={()=>{
+          navigate('/profile/orders')
+          }} className='text-sm text-gray-600 hover:shadow px-3'>OK</button>
       </div>
-         
+        
         </div>
 
         : 
@@ -138,7 +137,7 @@ null
 
 <div className='flex justify-end pt-10'>
 
-<button onClick={placeOrder} className='bg-teal-500 p-4 w-1/2 text-white font-bold text-lg rounded'>Proceed</button>
+<button onClick={placeOrder} className='bg-teal-500 hover:bg-teal-700 p-4 w-1/2 text-white font-bold text-lg rounded'>Proceed</button>
 </div>
 
     </div>

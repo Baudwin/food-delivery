@@ -17,7 +17,7 @@ export const UserOrders = () => {
                     return <div key={order._id} className='shadow border p-4 space-y-6 '>
                         <div className='flex gap-2 items-center justify-between'>
                             <p> <span>Order ID : </span> <span className='text-blue-600 uppercase'>{(order._id).substring(18)}</span> </p>
-                            <span className={`${order.status==="pending"? 'bg-gray-500' : null} ${order.status==="delivered"? 'bg-green-500' : null} ${order.status==="canceled"? 'bg-red-500' : null} rounded text-white px-4 py-1.5 font-bold`}>{order.status}</span>
+                            <span className={`${order.status==="pending"? 'bg-gray-500' : null} ${order.status==="delivered"? 'bg-green-500' : null} ${order.status==="canceled"? 'bg-red-500' : null} rounded text-white px-3 py-1 font-medium`}>{order.status}</span>
                         </div>
                         
 

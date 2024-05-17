@@ -68,7 +68,7 @@ isLoading ? <div className="container py-10 flex justify-center items-center gap
  <h1 className="font-semibold text-md capitalize text-center">{item.itemName}</h1>
 
 <div className="flex justify-between items-center py-1 px-1 ">
- <p className="text-gray-700 text-sm">{item.price} XAF</p> 
+ <p className="text-gray-700 text-sm flex-1">{item.price} XAF</p> 
 
 <button onClick={()=>AddToCart(item)} className=" hover:bg-amber-600 shadow rounded-full px-3 py-1 text-white flex gap-1 justify-center bg-amber-500 "> 
 <span className="text-sm font-medium uppercase">

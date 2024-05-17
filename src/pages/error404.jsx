@@ -12,7 +12,7 @@ export const Error404 = () => {
     <div className='container  py-20'>
         <div className='flex flex-col justify-center items-center '>
          <h1 className='text-6xl font-bold text-amber-500 pb-3'>404</h1>
-        <p className='font-bold text-xl py-3'>Oops! Looks like something went wrong</p>
+        <p className='font-bold text-xl py-3 text-center'>Oops! Looks like something went wrong</p>
         <p className='text-sm font-thin '>Page could not be found! we'll get it sorted out in no time. 
               </p>
               <p className='text-sm font-thin '> Meanwhile checkout these fresh ideas: 

@@ -43,10 +43,14 @@ th {
   @apply  bg-teal-500 text-white
  }
 
+ .profile-nav button:hover{
+  @apply  bg-teal-500 text-white
+ }
+
  .profile-nav a.active{
   @apply  bg-teal-500 text-white font-semibold
  }
- .profile-nav a{
+ .profile-nav a,button{
   @apply  text-xl  py-4 flex-1 text-center
  }
 

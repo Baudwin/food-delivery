@@ -98,9 +98,9 @@ export const AddItem = () => {
 
         </div>   
     
-        <button disabled = {isPending}  type='submit' className='bg-teal-600 text-white p-3 shadow flex justify-center items-center gap-2'> 
-        <span>{isPending ?"Adding item"  : "Add Item" } </span>
-        {isPending ? <ClipLoader size={18}  aria-label="Loading Spinner"  data-testid="loaer"/> : null }
+        <button disabled = {!isPending}  type='submit' className='bg-teal-600 text-white p-3 shadow flex justify-center items-center gap-2'> 
+        {/* <span>{isPending ?"Adding item"  : "Add Item" } </span> */}
+        {isPending ? <ClipLoader size={18}  aria-label="Loading Spinner" color='white'  data-testid="loader"/> : "Add Item" }
        
          </button>
    

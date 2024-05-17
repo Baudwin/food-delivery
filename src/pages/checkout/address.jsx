@@ -78,7 +78,7 @@ export const Address = () => {
            
         }
 
-       }} className=' border text-center py-3 text-white bg-teal-500 shadow-sm'>Proceed to Payment</button> 
+       }} className=' border text-center py-3 text-white bg-teal-500 shadow-sm hover:bg-teal-700'>Proceed to Payment</button> 
 
    </div>
 

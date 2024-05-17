@@ -2,14 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export default function Footer() {
-  return (   <footer className='bg-amber-50  space-y-7'>
+  return (   <footer className='bg-black text-white  space-y-7 '>
 
-<div className='container '>
+<div className='container sm:px-7 md:px-10 '>
    <div className='flex sm:flex-col sm:gap-4 sm:items-start justify-between items-center py-10 sm:py-5'>
     <h1 className='font-bold text-2xl'>Subscribe to Newsletter</h1>
-    <div className='flex gap-2 shadow rounded-lg p-3'>
-      <input className='bg-amber-50 focus:outline-none' placeholder='Enter your email address' type="text" name="" id="" />
-      <button className='bg-red-600 text-white rounded px-3 py-1'>Subscribe</button>
+    <div className='flex gap-2 shadow border rounded-lg p-3'>
+      <input className='bg-black focus:outline-none' placeholder='Enter your email address' type="text" name="" id="" />
+      <button className='bg-amber-500 text-white rounded px-3 py-1'>Subscribe</button>
     </div>
    </div>
 <hr className=''/>
@@ -25,15 +25,15 @@ export default function Footer() {
 
   <div className='text-sm text-center sm:text-left'>
     <h1 className='font-bold text-lg'>Opening Hours</h1>
-    <p className='text-gray-800'>Monday - Friday 8AM-6PM</p>
-    <p className='text-gray-800'>Saturday - Sunday 11AM-5PM</p>
+    <p className='text-gray-400'>Monday - Friday 8AM-6PM</p>
+    <p className='text-gray-400'>Saturday - Sunday 11AM-5PM</p>
   </div>
 
   <div className='flex flex-col items-center sm:items-start sm:text-left text-sm'>
     <h1 className='font-bold text-lg'>Quick Links</h1>
-    <Link className='text-gray-800'>Home</Link>
-    <Link className='text-gray-800'>Menu</Link>
-    <Link className='text-gray-800'>Shopping Cart</Link>
+    <Link className='text-gray-400'>Home</Link>
+    <Link className='text-gray-400'>Menu</Link>
+    <Link className='text-gray-400'>Shopping Cart</Link>
   </div>
 
 </div>
@@ -41,7 +41,7 @@ export default function Footer() {
 </div>
 
 
-<div className='bg-amber-100 text-center py-3'>
+<div className='bg-black text-center py-3'>
   <h1>copyright baudwin12@gmail.com | All Rights Reserved</h1>
 
 </div>
