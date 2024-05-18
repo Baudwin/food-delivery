@@ -48,7 +48,9 @@ const setCartTotal = useCartStore(state=>state.setTotal)
 const login = useAuthStore(state=>state.login)
   
 const getUser = (token)=>{
-  axios.get('https://food-delivery-app-backend-xi.vercel.app/user',{
+  axios.get('https://food-delivery-app-backend-xi.vercel.app/user',
+  { withCredentials: true },
+  {
     headers:{
       Authorization: `Bearer ${token}`
     }
