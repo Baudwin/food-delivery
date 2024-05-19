@@ -53,8 +53,10 @@ const getUser = (token)=>{
   {
     headers:{
       Authorization: `Bearer ${token}`
-    }
-  })
+    }, 
+    withCredentials:true
+  }
+)
       .then(response => {
         login(response.data.userData, token)
       })
