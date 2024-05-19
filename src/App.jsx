@@ -48,8 +48,8 @@ const setCartTotal = useCartStore(state=>state.setTotal)
 const login = useAuthStore(state=>state.login)
   
 const getUser = (token)=>{
-  axios.get('https://food-delivery-app-backend-xi.vercel.app/user',
-  { withCredentials: true },
+  console.log(token)
+  axios.get(import.meta.env.MODE === 'production'?'https://food-delivery-app-backend-xi.vercel.app/user':'http://localhost:3005/user',
   {
     headers:{
       Authorization: `Bearer ${token}`
@@ -67,6 +67,7 @@ const getUser = (token)=>{
 useEffect(() => {
   if (!user) {
    const token =  Cookies.get('x-auth-cookie')
+   console.log(token)
   getUser(token)
   Cookies.remove('x-auth-cookie') 
   
